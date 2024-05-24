@@ -1,0 +1,240 @@
+h2{
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+p{
+    color: var( --font-gray);
+    font-size: 1.2rem;
+    text-align: justify;
+}
+p span{
+    color: var(--black);
+    font-weight: 600;
+}
+section{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+    background-color: #fafafa;
+}
+.about-first-section{
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+.about-main{
+flex-basis: 60%;
+
+}
+.about-img{
+    flex-basis: 40%;
+    display: flex;
+    justify-content: flex-end;
+}
+.about-img img{
+    width: 90%;
+}
+.about-main p a{
+    font-size: 1rem;
+    color: var(--sky-blue);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.ourMission-main{
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    background-color: #f5fbff;
+    padding: 50px 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap: 10px; */
+}
+.ourMission-main p{
+    font-size: .9rem;
+    color: var(--font-gray);
+}
+.ourMission-main h1{
+    width: 80%;
+    font-weight: 600;
+    color: var(--black);
+}
+.ourMission-main h1 span{
+    color: var(--sky-blue);
+}
+
+
+.services-main p{
+    width: 60%;
+}
+.services-main ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    margin: 30px 0;
+}
+.services-main ul li{
+    flex-basis: 50%;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    font-weight: 600;
+    color: var(--font-gray);
+}
+.services-main ul li i{
+    color: var(--red);
+    font-size: 1.5rem;
+
+}
+.services-main .card{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 30px 0;
+    border: none;
+    background-color: var(--light-red);
+
+}
+.services-main .card .card-text{
+    flex-basis: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-main{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.meet-main .card-main .card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-basis: 22%;
+    height: 60vh;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+    border: none;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    border-radius: .3rem;
+    overflow: hidden;
+}
+.meet-main .card-main .card:hover{
+    transform: translateY(-15px);
+}
+/* .meet-main .card-main .card img{
+    height: 30vh;
+    width: 100%;
+} */
+.cad-img{
+    /* background-image: url('../../../assets/Images/shayan.jpeg'); */
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 35vh;
+    width: 100%;
+    filter: grayscale(100%);
+}
+.meet-main .card-main .card:hover .cad-img{
+    filter: grayscale(0%); 
+}
+.card strong{
+    font-size: 1.2rem;
+    padding: 0 10px;
+}
+.card span{
+    color: var(--font-gray);
+    font-weight: 500;
+    padding: 0 10px;
+    font-size: .9rem;
+}
+.card i{
+    font-size: 3rem;
+    color: #0e76a8;
+    padding: 15px 10px;
+}
+
+.office-main{
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f5fbff;
+    padding: 50px 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.office-card{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    /* border: 1px solid red; */
+
+}
+.card-deatils{
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.office-card .map{
+    flex-basis: 58%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+.office-card .card{
+width: 100%;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.office-card .card .card-body{
+    /* border: none; */
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+}
+.office-card .card .card-body strong{
+    display: flex;
+    align-items: center;
+
+}
+.office-card .card .card-body strong i{
+    font-size: 1.5rem;
+    color: var(--red);
+    cursor: pointer;
+}
+.card-icon i{
+    font-size: 1.5rem;
+    color: var(--black);
+    cursor: pointer;
+}
+.office-card .card .card-body span{
+
+}
+.office-card .card .card-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    background-color: transparent;
+    padding: 15px 10px;
+    font-size: .9rem;
+}

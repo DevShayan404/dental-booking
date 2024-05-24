@@ -1,0 +1,236 @@
+<section class="main">
+  <div class="container-fluid g-0" style="background-color: #f9f9f9">
+    <div class="row g-0" style="background-color: #fff">
+      <div class="col-12">
+        <div class="breadcrumb-main">
+          <div class="breadcrumb-left">
+            <p-skeleton
+              *ngIf="spinner"
+              width="20rem"
+              height="1.5rem"
+              styleClass="mb-2"
+            ></p-skeleton>
+            <h5 *ngIf="!spinner && !searchHospitalListActive">
+              {{ length }} Best Hospitals Available
+            </h5>
+            <h5 *ngIf="!spinner && searchHospitalListActive">
+              {{ searchLength }} Best Hospitals Available
+            </h5>
+          </div>
+          <!-- <p-skeleton
+            *ngIf="spinner"
+            width="15rem"
+            height="2rem"
+            styleClass="mb-2"
+          ></p-skeleton> -->
+          <div class="breadcrumb-right">
+            <input
+              type="text"
+              placeholder="Search"
+              [(ngModel)]="searchQuery"
+              (input)="searchHospitalList()"
+            />
+            <i class="bx bx-search-alt"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row p-3 g-0">
+      <div class="col-12">
+        <div *ngIf="!spinner">
+          <div *ngIf="notFound" class="notAvailDr">
+            <img src="assets\animation\notFound.gif" alt="" />
+            <h5>No Doctors found at this location</h5>
+          </div>
+
+          <div
+            *ngIf="!notFound && !searchHospitalListActive"
+            class="ng-card-div"
+          >
+            <p-card class="ng-card" *ngFor="let hospital of DrListResponse">
+              <div class="card-body">
+                <div class="card-body-left">
+                  <div
+                    class="card-content"
+                    (click)="routeToDrProfile(hospital)"
+                  >
+                    <div class="card-img">
+                      <img
+                        *ngIf="hospital?.ProfilePic === null"
+                        src="assets\Images\hospitalLogo.png"
+                        alt=""
+                      />
+                      <img
+                        *ngIf="hospital?.ProfilePic !== null"
+                        [src]="hospital?.ProfilePic"
+                      />
+                    </div>
+                    <div class="card-img-sm">
+                      <img
+                        *ngIf="hospital?.ProfilePic === null"
+                        src="assets\Images\hospitalLogo.png"
+                        alt=""
+                      />
+                      <img
+                        *ngIf="hospital?.ProfilePic !== null"
+                        [src]="hospital?.ProfilePic"
+                      />
+                    </div>
+                    <h4>
+                      {{ hospital?.BusinessName }}
+                      <i class="bx bx-plus-medical"></i>
+                    </h4>
+                    <span>{{ hospital?.Address1 }}</span>
+                  </div>
+                  <hr />
+                  <div class="card-footer">
+                    <div
+                      class="card-footer-main"
+                      *ngFor="let list of hospital?.DoctorVendor.slice(0, 2)"
+                    >
+                      <p-avatar
+                        image="assets\Images\people1.png"
+                        size="small"
+                        shape="circle"
+                      ></p-avatar>
+                      <span
+                        >{{ list?.Doctor?.InitialName }}
+                        {{ list?.Doctor?.FirstName }}...
+                        <!-- {{ list?.Doctor?.LastName | slice: 0: 3}}... -->
+                        <img src="assets\Images\verifiedDr.png" alt=""
+                      /></span>
+                    </div>
+                    <a
+                      (click)="redirectToDoctors(hospital)"
+                      *ngIf="hospital?.DoctorVendor.length > 2"
+                      >view all <i class="bx bx-chevron-right"></i
+                    ></a>
+                  </div>
+                </div>
+
+                <div class="card-body-right">
+                  <google-map
+                    height="30vh"
+                    width="100%"
+                    class="map"
+                    [options]="mapOptions"
+                    [center]="{
+                      lat: +hospital.Lat,
+                      lng: +hospital.Long
+                    }"
+                  >
+                    <map-marker
+                      [position]="{
+                        lat: +hospital.Lat,
+                        lng: +hospital.Long
+                      }"
+                    ></map-marker>
+                  </google-map>
+                </div>
+              </div>
+            </p-card>
+
+            <div *ngIf="isLoading" class="loader">
+              <app-skeleton-dr-list style="width: 100%"></app-skeleton-dr-list>
+            </div>
+          </div>
+          <div
+            *ngIf="!notFound && searchHospitalListActive"
+            class="ng-card-div"
+          >
+            <p-card
+              class="ng-card"
+              *ngFor="let hospital of searchHospitalLists"
+            >
+              <div class="card-body">
+                <div class="card-body-left">
+                  <div
+                    class="card-content"
+                    (click)="routeToDrProfile(hospital)"
+                  >
+                    <div class="card-img">
+                      <img
+                        *ngIf="hospital?.ProfilePic === null"
+                        src="assets\Images\hospitalLogo.png"
+                        alt=""
+                      />
+                      <img
+                        *ngIf="hospital?.ProfilePic !== null"
+                        [src]="hospital?.ProfilePic"
+                      />
+                    </div>
+                    <div class="card-img-sm">
+                      <img
+                        *ngIf="hospital?.ProfilePic === null"
+                        src="assets\Images\hospitalLogo.png"
+                        alt=""
+                      />
+                      <img
+                        *ngIf="hospital?.ProfilePic !== null"
+                        [src]="hospital?.ProfilePic"
+                      />
+                    </div>
+                    <h4>
+                      {{ hospital?.BusinessName }}
+                      <i class="bx bx-plus-medical"></i>
+                    </h4>
+                    <span>{{ hospital?.Address1 }}</span>
+                  </div>
+                  <hr />
+                  <div class="card-footer">
+                    <div
+                      class="card-footer-main"
+                      *ngFor="let list of hospital?.DoctorVendor?.slice(0, 2)"
+                    >
+                      <p-avatar
+                        image="assets\Images\people1.png"
+                        size="small"
+                        shape="circle"
+                      ></p-avatar>
+                      <span
+                        >{{ list?.Doctor?.InitialName }}
+                        {{ list?.Doctor?.FirstName }} ...
+                        <img src="assets\Images\verifiedDr.png" alt=""
+                      /></span>
+                    </div>
+                    <a
+                      (click)="redirectToDoctors(hospital)"
+                      *ngIf="hospital?.DoctorVendor?.length > 2"
+                      >view all <i class="bx bx-chevron-right"></i
+                    ></a>
+                  </div>
+                </div>
+
+                <div class="card-body-right">
+                  <google-map
+                    height="30vh"
+                    width="100%"
+                    class="map"
+                    [options]="mapOptions"
+                    [center]="{
+                      lat: +hospital.Lat,
+                      lng: +hospital.Long
+                    }"
+                  >
+                    <map-marker
+                      [position]="{
+                        lat: +hospital.Lat,
+                        lng: +hospital.Long
+                      }"
+                    ></map-marker>
+                  </google-map>
+                </div>
+              </div>
+            </p-card>
+            <div *ngIf="isLoading" class="loader">
+              <app-skeleton-dr-list style="width: 100%"></app-skeleton-dr-list>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="spinner" class="loader">
+          <app-skeleton-dr-list style="width: 100%"></app-skeleton-dr-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

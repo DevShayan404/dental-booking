@@ -1,0 +1,27 @@
+<app-laoder *ngIf="loaderService.loading$ | async"></app-laoder>
+<app-navbar
+  *ngIf="
+    !(loaderService.loading$ | async) &&
+    router.url !== '/appointment/doctors/enter-details'
+  "
+></app-navbar>
+<router-outlet *ngIf="!(loaderService.loading$ | async)"></router-outlet>
+<app-footer
+  *ngIf="
+    !(loaderService.loading$ | async) &&
+    router.url !== '/appointment/doctors/enter-details'
+  "
+></app-footer>
+
+<!-- <app-navbar ></app-navbar>
+<router-outlet></router-outlet>
+<app-footer ></app-footer> -->
+
+<!-- <div *ngIf="notAvailRegion" class="pageNotFound">
+  <div class="pageNotFound-main">
+    <img src="assets\animation\notFound.gif" alt="" />
+    <h3>not availaible in your country/region</h3>
+  </div>
+</div> -->
+
+<p-scrollTop class="scrollTop" [threshold]="200"></p-scrollTop>

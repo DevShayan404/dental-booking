@@ -1,0 +1,183 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="about-first-section">
+          <div class="about-main">
+            <h2>About <span>Dental Booking</span></h2>
+            <p>
+              Dental Booking is the #1
+              <span> digital healthcare platform in Canada</span>. Dental
+              Booking helps you find and instantly
+              <span> book appointments </span>or
+              <span>online video consultations</span> with the best doctors in
+              Canada. Our transparent and intuitive platform helps you choose
+              the right doctors by letting you check up on patient reviews,
+              consultation fees, satisfaction scores, and wait times.
+              <!-- <a (click)="readmore()" *ngIf="!readMore">Read more</a> -->
+            </p>
+            <!-- <p *ngIf="readMore"> -->
+            <p >
+              Dental Booking has already served over
+              <span>15 million+ patients</span> across the country and counting!
+              We at Dental Booking strive for a healthier Canada, a healthier world, and
+              a healthier tomorrow. With a growing user base and an extensive
+              network of 25000+ PMC verified doctors in
+              <span>100+ specialties</span> , Dental Booking is setting the
+              landscape of Canada's digital healthcare industry.
+            </p>
+          </div>
+          <div class="about-img">
+            <img src="assets\Images\aboutImg.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid g-0 ">
+    <div class="row  g-0 ">
+      <div class="col-12">
+        <div class="ourMission-main">
+          <p>OUR MISSION</p>
+          <h1>
+            Our mission is to make healthcare <span>Accessible</span>,
+            <span>Transparent</span> & <span>Affordable</span> for the people of
+            Pakistan
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="services-main">
+          <h2>Services</h2>
+          <p>
+            We connect you with the <span>best doctors in Canada</span> who are
+            experts in their relevant fields via
+            <span>in-person appointments </span> or
+            <span>video consultations</span> . You can use Dental Booking to
+            instantly book an appointment for a relevant specialty, treatment,
+            hospital, or lab test.
+          </p>
+          <ul>
+            <li>
+              <i class="bx bx-badge-check"></i>24/7 Unlimited consultations
+            </li>
+            <li>
+              <i class="bx bx-badge-check"></i>Diagnostic lab appointments
+            </li>
+            <li><i class="bx bx-badge-check"></i>In-person appointments</li>
+            <li><i class="bx bx-badge-check"></i>Medical records sharing</li>
+            <li><i class="bx bx-badge-check"></i>Verified Reviews</li>
+            <li><i class="bx bx-badge-check"></i>Priorty cutomer support</li>
+          </ul>
+          <div class="card">
+            <div class="card-text">
+              <strong>15M+</strong>
+              <span>Users served</span>
+            </div>
+            <div class="card-text">
+              <strong>300,000+</strong>
+              <span>Patient reviews</span>
+            </div>
+            <div class="card-text">
+              <strong>500,00+</strong>
+              <span>App installs</span>
+            </div>
+            <div class="card-text">
+              <strong>10+</strong>
+              <span>Cities across Canada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="meet-main">
+          <h2>Meet the minds behind Dental Booking</h2>
+          <div class="card-main">
+            <div class="card" *ngFor="let list of card">
+              <div
+                class="cad-img mb-3"
+                [style.background-image]="'url(' + list.src + ')'"
+              ></div>
+              <!-- <img alt="Card" [src]="list.src" /> -->
+              <strong>{{ list.name }}</strong>
+              <span>{{ list.designation }}</span>
+              <i class="bx bxl-linkedin-square"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid g-0">
+    <div class="row  g-0 ">
+      <div class="col-12">
+        <div class="office-main">
+          <h2>Offices</h2>
+          <div class="office-card">
+            <div class="card-deatils">
+              <div class="card">
+                <div class="card-body">
+                  <strong>Canada <i class="bx bxs-map"></i></strong>
+                  <div class="card-icon">
+                    <i class="bx bx-envelope"></i>
+                    <i class="bx bx-phone"></i>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <span>Unit 104-100 Dynamic Drive, Toronto, ON M1V 5C4</span>
+                </div>
+                <div class="card-footer">
+                  <label>Phone: 1 647 476 7213 </label>
+                  <label>Fax: 1 647 476 7213 </label>
+                  <label>Email: info@mbeforyou.com </label>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <strong>USA <i class="bx bxs-map"></i></strong>
+                  <div class="card-icon">
+                    <i class="bx bx-envelope"></i>
+                    <i class="bx bx-phone"></i>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <span>58 Genesee St. Hicksville, NY 11801 USA</span>
+                </div>
+                <div class="card-footer">
+                  <label>Phone: 1 647 476 7213 </label>
+                  <label>Fax: 1 647 476 7213 </label>
+                  <label>Email: info@mbeforyou.com </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="map">
+              <google-map
+              height="71vh"
+              width="100%"
+              [options]="mapOptions"
+              [center]="mapCenter"
+            >
+              <map-marker [position]="markerPosition"></map-marker>
+            </google-map>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</section>

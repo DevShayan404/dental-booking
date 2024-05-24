@@ -1,0 +1,180 @@
+<app-skeleton-schedule *ngIf="spinner"></app-skeleton-schedule>
+<section class="bookAppointment-main">
+  <div *ngIf="!spinner" class="container">
+    <div class="row">
+      <div class="col-8">
+        <p-card class="ng-card">
+          <div class="card-body-left">
+            <div class="card-img">
+              <img src="assets\Images\profile.png" alt="" />
+            </div>
+            <div class="card-content">
+              <strong>{{ doctorName }} </strong>
+              <span
+                >Dentist, Orthodontist
+                <p>Change Clinic</p></span
+              >
+            </div>
+          </div>
+        </p-card>
+      </div>
+
+      <div class="col-8">
+        <p-card class="ng-card">
+          <p-tabView
+            class="ng-tab"
+            [(activeIndex)]="activeIndex"
+            [scrollable]="true"
+            (onChange)="getDate($event)"
+          >
+            <p-tabPanel *ngFor="let date of dateArr" [header]="date">
+              <app-skeleton-slots *ngIf="loader"></app-skeleton-slots>
+              <!-- <div *ngIf="loader" class="tabView-loader">
+                <img src="assets\animation\square-loader.gif" alt="" />
+              </div> -->
+              <div *ngIf="!loader" class="schedule-main">
+                <div *ngIf="slotList?.length <= 0" class="schedule-msg">
+                  <img src="assets\animation\notAvailSlot.gif" alt="" />
+                  <h5>No slots available for selected date</h5>
+                </div>
+                <div *ngIf="slotList?.length >= 0" class="mornig-main">
+                  <div *ngIf="slotListFilterMorning?.length > 0">
+                    <div class="schedule-mornig">
+                      <img src="assets\Images\mornig.png" alt="" />
+                      <span>Morning Slots</span>
+                    </div>
+                    <div class="schedule-time">
+                      <div *ngFor="let slot of slotListFilterMorning">
+                        <button
+                          *ngIf="slot.isBooked === 0"
+                          class="NotBookedSlot"
+                          (click)="showDialog(slot)"
+                        >
+                          {{ slot?.time | date : "shortTime" }}
+                        </button>
+                        <button
+                          *ngIf="slot.isBooked !== 0"
+                          class="BookedSlot"
+                          (click)="showDialog(slot)"
+                        >
+                          {{ slot?.time | date : "shortTime" }}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="slotListFilterEvening?.length > 0">
+                    <div class="schedule-mornig">
+                      <img src="assets\Images\mornig.png" alt="" />
+                      <span>Evening Slots</span>
+                    </div>
+                    <div class="schedule-time">
+                      <div *ngFor="let slot of slotListFilterEvening">
+                        <button
+                          *ngIf="slot.isBooked === 0"
+                          class="NotBookedSlot"
+                          (click)="showDialog(slot)"
+                        >
+                          {{ slot?.time | date : "shortTime" }}
+                        </button>
+                        <button
+                          *ngIf="slot.isBooked !== 0"
+                          class="BookedSlot"
+                          (click)="showDialog(slot)"
+                        >
+                          {{ slot?.time | date : "shortTime" }}
+                        </button>
+                      </div>
+                      <!-- <button
+                        (click)="showDialog(slot)"
+                        *ngFor="let slot of slotListFilterEvening"
+                      >
+                        {{ slot?.time | date : "shortTime" }}
+                      </button> -->
+                    </div>
+                  </div>
+
+                  <div *ngIf="slotListFilterNight?.length > 0">
+                    <div class="schedule-mornig">
+                      <img src="assets\Images\night.png" alt="" />
+                      <span>Night Slots</span>
+                    </div>
+                    <div class="schedule-time">
+                      <div *ngFor="let slot of slotListFilterNight">
+                        <button
+                          *ngIf="slot.isBooked === 0"
+                          class="NotBookedSlot"
+                          (click)="showDialog(slot)"
+                        >
+                          {{ slot?.time | date : "shortTime" }}
+                        </button>
+                        <button
+                          *ngIf="slot.isBooked !== 0"
+                          class="BookedSlot"
+                          (click)="showDialog(slot)"
+                        >
+                          {{ slot?.time | date : "shortTime" }}
+                        </button>
+                      </div>
+                      <!-- <button
+                        (click)="showDialog(slot)"
+                        *ngFor="let slot of slotListFilterNight"
+                      >
+                        {{ slot?.time | date : "shortTime" }}
+                      </button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </p-tabPanel>
+          </p-tabView>
+        </p-card>
+      </div>
+
+      <div class="col-8">
+        <div class="satisfied-main">
+          <div class="satisfied-img">
+            <img src="assets\Images\satisfied.png" alt="" />
+          </div>
+          <div class="satisfied-content">
+            <strong
+              >95% patients feel satisfied after booking appointment from
+              oladoc</strong
+            ><br />
+            <span>It takes only 30 sec to book an appointment</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col-8">
+        <p-card class="ng-card">
+          <div class="footer">
+            <strong>Doctors in hospitals near you</strong>
+            <div class="footer-sub">
+              <span>Online Video Consultation, Video Consultation</span>
+              <span>oladoc Care Video Consultation, Video Consultation</span>
+            </div>
+          </div>
+        </p-card>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+
+<div *ngIf="taost" class="toast-main">
+  <div
+    class="toast show"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    [@zoomIn]
+  >
+    <div class="toast-body">
+      <i class="bx bxs-error-circle"></i>
+
+      <p>This Slot is Booked.</p>
+    </div>
+    <div class="progress"></div>
+  </div>
+</div>

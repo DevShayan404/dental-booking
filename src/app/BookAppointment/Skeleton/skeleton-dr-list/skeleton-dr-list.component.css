@@ -1,0 +1,307 @@
+.ng-card-div{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+::ng-deep.ng-card{
+  flex-basis: 49%;
+}
+.ng-card::ng-deep.p-card {
+  /* margin: 10px 0 20px 0; */
+  padding: 0;
+  cursor: pointer;
+}
+.ng-card::ng-deep.p-card .p-card-body {
+  padding: 0 ;
+}
+/* .card{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border: none;
+    margin: 15px 0;
+} */
+.card-body {
+  width: 100%;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-flow: row wrap;
+}
+.card-body-left {width: max-content;
+  flex-basis: 68%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: flex-start;
+  /* gap: 20px; */
+}
+
+.card-body-left hr {
+  width: 100%;
+}
+.card-img-sm{
+  display: none;
+}
+.card-img{
+  display: inline;
+  width: max-content;
+}
+.card-img img {
+  width:150px;
+ height: 60px;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  /* margin-left: 20px; */
+}
+.card-content h4 {
+  font-weight: 600;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 5px 0 0 0;
+}
+
+.card-content h4 i {
+  color: var(--red);
+}
+.card-content span {
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.card-body-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-basis: 30%;
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+.card-footer {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  /* gap: 15px; */
+  padding: 0;
+  width: 100%;
+}
+/* .cardfooterActive{
+  border: 1px solid red;
+  background-color: #f9f9f9;
+  border-radius: 0.3rem;
+  padding: 5px 10px 0 10px;
+    flex-basis:42%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+} */
+.card-footer-main {
+  border: 1px solid var(--gray-border);
+  background-color: #f9f9f9;
+  border-radius: 0.3rem;
+  padding: 5px 10px 0 10px;
+  flex-basis: 49%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-footer a {
+  width: 100%;
+  color: var(--sky-blue);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: .9rem;
+}
+.card-footer a i {
+  font-size: 1.2rem;
+}
+.card-footer-main span {
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.card-footer-main span img {
+  width: 40px;
+}
+
+@media (max-width: 1023px) {
+  .breadcrumb-left h5 {
+    font-size: 1.2rem;
+  }
+  .breadcrumb-right {
+    width: 30%;
+  }
+  .ng-card::ng-deep.p-card {
+    margin: 10px 0 20px 0;
+  }
+  .ng-card::ng-deep.p-card .p-card-body {
+    padding: 0 ;
+  }
+  .card-body {
+    padding: 0 20px;
+  }
+  .card-body-left {
+    flex-basis: 100%;
+    position: relative;
+  }
+  .card-img{
+  display: none;
+  }
+  .card-img-sm{
+    display: inline;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .card-img-sm img {
+    width: 150px;
+   /* height: 10px; */
+  }
+  .card-content h4 {
+    font-size: 1.1rem;
+  }
+  
+  /* .card-content h4 i {
+    display: none;
+  } */
+  .card-content span {
+    font-size: 0.8rem;
+    color: var(--gray);
+  }
+  
+
+  .card-footer {
+    justify-content: flex-start;
+    flex-flow: row nowrap;
+    gap: 10px;
+  }
+  .card-footer-main {
+    flex-basis: 49%;
+
+  }
+  .card-footer a {
+    font-size: 0.8rem;
+  }
+  .card-footer a i {
+    font-size: 1.2rem;
+  }
+  .card-footer-main span {
+    font-size: 0.8rem;
+    width: max-content;
+  }
+  .card-footer-main span img {
+    width: 40px;
+  }
+  ::ng-deep.p-avatar.p-avatar-lg {
+    width: 2rem;
+    height: 2rem;
+}
+  .card-body-right {
+    display: none;
+  }
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 767px) {
+  .main {
+    margin-top: 95px;
+  }
+  .breadcrumb-main {
+    justify-content: center;
+  }
+  .breadcrumb-left {
+    display: none;
+  }
+  .breadcrumb-right {
+    width: 98%;
+  }
+  ::ng-deep.ng-card{
+    flex-basis: 100%;
+  }
+  .ng-card::ng-deep.p-card {
+    margin:0;
+    width: 100%;
+  }
+  .ng-card::ng-deep.p-card .p-card-body {
+    padding: 0 ;
+  }
+  .card-body {
+    padding: 0 20px;
+  }
+  .card-body-left {
+    flex-basis: 100%;
+    position: relative;
+  }
+  .card-img-sm{
+    display: none;
+  }
+  .card-img{
+    display: inline;
+  }
+  .card-img img {
+    width: 120px;
+  }
+  .card-content h4 {
+    font-size: 1.1rem;
+  }
+  
+  .card-content h4 i {
+    display: none;
+  }
+  .card-content span {
+    font-size: 0.8rem;
+    color: var(--gray);
+  }
+  
+
+  .card-footer {
+    justify-content: center;
+    flex-flow: column nowrap;
+    gap: 10px;
+  }
+  .card-footer-main {
+    flex-basis: 100%;
+  }
+  .card-footer a {
+    font-size: 0.8rem;
+  }
+  .card-footer a i {
+    font-size: 1.2rem;
+  }
+  .card-footer-main span {
+    font-size: 0.8rem;
+    width: max-content;
+  }
+  .card-footer-main span img {
+    width: 40px;
+  }
+  ::ng-deep.p-avatar.p-avatar-lg {
+    width: 2rem;
+    height: 2rem;
+}
+  .card-body-right {
+    display: none;
+  }
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

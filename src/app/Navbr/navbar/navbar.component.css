@@ -1,0 +1,1496 @@
+header {
+  background-color: var(--red);
+  width: 100%;
+  color: #fff;
+}
+.promotion-div {
+  /* border: 1px solid red; */
+  position: relative;
+}
+.promotion-div i {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translate(-2%, -50%);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.promotion-div ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.promotion-div ul li {
+  padding: 5px 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+}
+.promotion-div ul li strong {
+  font-size: 0.9rem;
+}
+.promotion-div ul li a {
+  font-size: 0.8rem;
+  color: #fff;
+  cursor: pointer;
+}
+.promotion-dialog::ng-deep.p-dialog .p-dialog-header {
+  padding: 0;
+}
+.promotion-dialog::ng-deep.p-dialog .p-dialog-header-icons {
+  position: absolute;
+  top: 5%;
+  right: 1%;
+}
+.promotion-dialog::ng-deep.p-dialog .p-dialog-content:last-of-type {
+  border-radius: 6px;
+}
+
+.promotion-dialog::ng-deep.p-dialog .p-dialog-content {
+  padding: 2rem 1.5rem;
+}
+.promotion-dialog a {
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.promotion-dialog ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+.promotion-dialog ul li {
+  padding: 5px 0;
+}
+.promotion-dialog ul li p {
+  margin: 0;
+}
+.ng-select.custom1 {
+  width: 100%;
+  position: relative;
+}
+.ng-select.custom1::ng-deep .ng-select-container {
+  color: #333;
+  background-color: #fff;
+  border-radius: 0;
+  border: 1px solid var(--gray-border);
+  border-radius: 0.2rem;
+  height: 36px;
+  width: 100% !important;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.ng-select.custom1::ng-deep.ng-select-container .ng-value-container {
+  /* width: 380px; */
+  display: flex;
+  flex: 1;
+  padding: 0 0 0 35px;
+}
+/* .ng-select.custom1::ng-deep .ng-arrow-wrapper {
+  display: none;
+} */
+/* .ng-select.custom1::ng-deep.ng-dropdown-panel.ng-select-bottom {
+  width: 100% !important;
+} */
+.ng-select.custom1::ng-deep
+  .ng-dropdown-panel.ng-select-bottom
+  .ng-dropdown-panel-items
+  .ng-option:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.ng-select.custom1::ng-deep
+  .ng-dropdown-panel
+  .ng-dropdown-panel-items
+  .ng-option {
+  border-bottom: 1px solid var(--gray-border);
+  font-size: 0.9rem;
+}
+.ng-select.custom1::ng-deep::-webkit-scrollbar {
+  width: 8px;
+}
+.ng-select.custom1::ng-deep::-webkit-scrollbar-thumb {
+  background: var(--gray-border);
+}
+.navSection-main {
+  background-color: transparent;
+  position: fixed;
+  top: -2px;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+}
+.notFixedNav {
+  width: 100%;
+  /* background-color: red; */
+}
+.navSectionActive {
+  background-color: #fff;
+  /* box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.22); */
+}
+.nav-main {
+  height: max-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  z-index: 100;
+  position: relative;
+}
+.navlink-collapse {
+  /* border: 1px solid red; */
+  border-top: 2px solid var(--gray-border);
+  position: absolute;
+  top: 90%;
+  left: 0;
+  /* transform: translate(0%, 27%); */
+  width: 100%;
+  height: 30vh;
+  background-color: #fff;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+}
+.activeHeader {
+  background-color: #fff;
+  color: var(--gray) !important;
+  z-index: 100;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1);
+}
+.logo-main {
+  /* border: 1px solid red; */
+}
+.logo-main img {
+  width: 90%;
+  height: auto;
+  cursor: pointer;
+}
+
+.nav-main .row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .nav-main .row img {
+  width: 75px;
+  padding: 5px 0;
+  cursor: pointer;
+} */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.location-Input {
+  /* border: 1px solid var(--gray-border); */
+  /* border-radius: 0.2rem; */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* padding: 0px 10px; */
+  width: 400px;
+  position: relative;
+}
+.location-Input i {
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translate(-3%, -50%);
+  z-index: 999;
+  font-size: 1.2rem;
+  color: var(--red);
+  cursor: pointer;
+}
+/* .location-Input input {
+  border: none;
+  outline: none;
+  width: 400px;
+} */
+.nav-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.navActive-left {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.nav-right ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0 10px;
+}
+.navRightColorActive {
+  color: var(--gray);
+}
+.nav-right ul li i {
+  font-size: 1.2rem;
+  text-align: end;
+  transition: 0.3s linear;
+}
+.navLinkchevronActive {
+  transition: 0.3s linear;
+  transform: rotate(180deg);
+}
+.nav-right ul li {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+.nav-left {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  color: #fff;
+}
+.nav-left .side-menu {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.2rem;
+  padding: 2px 5px;
+  background-color: #f6f9fb;
+  cursor: pointer;
+  box-shadow: 0px 0px 810px rgba(0, 0, 0, 0.22);
+}
+.nav-left .bx-menu-alt-right {
+  font-size: 3rem;
+
+  cursor: pointer;
+}
+.menuIconActive {
+  color: var(--gray);
+}
+.nav-left .login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+.login-sm {
+  display: none;
+}
+.nav-left .login span {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 5px;
+  padding: 5px 0;
+}
+.nav-left .login span i {
+  font-size: 1.2rem;
+}
+/* p-sidebar::ng-deep.p-sidebar-right {
+  top: 0;
+  right: 0;
+  width: 18rem;
+  height: 100%;
+} */
+p-sidebar::ng-deep img {
+  /* border: 1px solid red; */
+  width: 170px;
+  height: auto;
+}
+
+.logout-main {
+  height: 78vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.logout-header {
+  margin-top: 15px;
+  width: 100%;
+  border: 1px solid var(--gray-border);
+  border-radius: 0.3rem;
+  padding: 15px 12px;
+}
+.logout-header i {
+  width: 100%;
+  text-align: center;
+  font-size: 3.5rem;
+  color: var(--red);
+  margin: 0 0 10px 0;
+}
+.logout-header form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+}
+.logout-header form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: max-content;
+  border-radius: 0.3rem;
+  border: none;
+  background-color: var(--sky-blue);
+  color: #fff;
+  padding: 5px 15px;
+  font-size: 0.9rem;
+}
+.logout-header form button i {
+  font-size: 1.2rem;
+  width: max-content;
+  margin: 0;
+  color: #fff;
+}
+.sideBar-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.slotHistory {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 0.3rem;
+  border: 2px solid var(--sky-blue);
+  background-color: #fff;
+  color: var(--sky-blue);
+  padding: 5px 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: 0.3s linear all;
+}
+.slotHistory:hover {
+  background-color: var(--light-blue);
+  color: var(--sky-blue);
+}
+.logout-main .logout {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 0.3rem;
+  border: 2px solid var(--red);
+  background-color: var(--red);
+  color: #fff;
+  padding: 5px 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: 0.3s linear all;
+}
+.logout-main .logout i {
+  font-size: 1.2rem;
+}
+.logout-main .logout:hover {
+  background-color: var(--light-red);
+  color: var(--red);
+}
+/* .nav-left .login span ul {
+  position: absolute;
+  top: 8%;
+  left: 0;
+  transform: translate(0%, 100%);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-top: 12px;
+  border: 1px solid red;
+  background-color: #fff;
+  color: var(--gray);
+}
+.nav-left .login span ul li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+} */
+.loginActive {
+  color: var(--gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.loginActive i {
+  font-size: 1.4rem;
+}
+
+/* .login-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  transform: translate(0%, 10%);
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--gray-border);
+} */
+.login-dropdown span {
+  width: 100%;
+  padding: 4px 0;
+  font-size: 0.9rem;
+  color: var(--gray);
+  transition: 0.2s all;
+  display: flex;
+  align-items: center;
+}
+
+.login-dropdown span:hover {
+  background-color: #ededed;
+}
+.login-dropdown span:nth-child(odd) {
+  border-bottom: 1px solid var(--gray-border);
+}
+.nav-left .phone {
+  border: 2px solid var(--red);
+  border-radius: 0.8rem;
+  padding: 8px 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: var(--red);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.nav-left .phone i {
+  font-size: 1.2rem;
+}
+.userDropdown {
+  border: 2px solid #bec3c7;
+  border-radius: 0.3rem;
+  padding: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: transparent;
+  color: #46484b;
+  transition: 0.3s all;
+  display: flex;
+  align-items: center;
+}
+.userDropdown i {
+  font-size: 1.2rem;
+}
+.dropdown-item {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.dropdown-item i {
+  font-size: 1rem;
+}
+.toggle {
+  display: none;
+}
+
+/* <!----------------link collapse section---------------------------------------> */
+.collapse-body {
+  height: max-content;
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid var(--gray-border);
+}
+.collapse-body .row {
+  /* border: 1px solid red; */
+  padding: 15px 0;
+  /* margin-top: 10px; */
+}
+.collapse-body .row h4 {
+  color: var(--gray);
+}
+.collapse-body .row span {
+  color: var(--gray);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+.collapse-body .row span:hover {
+  color: var(--sky-blue);
+}
+.collapse-body .row span i {
+  font-size: 1.1rem;
+}
+.collapse-body .row strong {
+  font-size: 0.9rem;
+  font-size: 500;
+}
+.collapse-body .row ul {
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  font-size: 0.9rem;
+}
+.collapse-body .row li {
+  /* padding: 2px 8px; */
+  cursor: pointer;
+  transition: 0.2s all;
+}
+.collapse-body .row li:hover {
+  background-color: var(--light-blue);
+}
+
+/* <!----------------modal---------------------------------------> */
+.ng-dialog::ng-deep.p-dialog-header {
+  background-color: #fff;
+  color: var(--sky-blue);
+  padding: 5px;
+  font-size: 1rem;
+  position: relative;
+}
+.back-button {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  transform: translate(-2%, -2%);
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--sky-blue);
+}
+.ng-dialog::ng-deep.pi {
+  font-size: 1.2rem;
+}
+.ng-dialog::ng-deep.p-dialog .p-dialog-header .p-dialog-header-icon {
+  width: 2rem;
+  height: 2.5rem;
+  color: var(--sky-blue);
+  border: 0 none;
+  background: transparent;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  margin-right: 0.5rem;
+}
+.ng-dialog::ng-deep.p-dialog-header .p-dialog-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.ng-dialog::ng-deep.p-dialog-content {
+  color: #495057;
+  padding: 0;
+}
+.loginModal-button-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+
+  /* border: 1px solid red; */
+}
+.loginModal-button-main img {
+  width: 50%;
+}
+.loginModal-button-main hr {
+  width: 70%;
+  margin: 0;
+}
+.loginModal-button {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* height: 30vh; */
+  gap: 15px;
+  margin: 20px 0 40px 0;
+  width: 50%;
+}
+.loginModal-button button {
+  border: none;
+  border-radius: 0.3rem;
+  padding: 10px 20px;
+  width: 100%;
+  color: #fff;
+  background-color: var(--red);
+  font-weight: 500;
+  transition: 0.3s all;
+}
+.loginModal-button a {
+  text-decoration: none;
+  color: #fff;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 10px 20px;
+  width: 100%;
+  color: #fff;
+  background-color: var(--red);
+  font-weight: 500;
+  text-align: center;
+  transition: 0.3s all;
+}
+.loginModal-button a:hover {
+  background-color: #b22f2f;
+}
+.loginModal-button button:hover {
+  background-color: #b22f2f;
+}
+.moadl-main {
+  /* border: 1px solid red; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+}
+.moadl-main strong {
+  color: var(--sky-blue);
+  font-size: 1.5rem;
+  /* margin-bottom: 10px; */
+}
+.moadl-main p {
+  font-size: 0.9rem;
+}
+.moadl-main p span {
+  color: var(--red);
+  cursor: pointer;
+}
+.moadl-main form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+.moadl-main form span {
+  cursor: pointer;
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--red);
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  gap: 20px;
+  /* position: relative; */
+}
+/* .field input {
+  width: 60%;
+  padding: 8px 10px;
+  margin-top: 20px;
+  outline: none;
+  border-radius: 0.3rem;
+  border: 1px solid var(--gray-border);
+}
+.field input:focus {
+  border-color: var(--sky-blue);
+} */
+/* .field span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  top: 46.5%;
+  left: 10%;
+  transform: translate(-50%, 0%);
+}
+.field span img {
+  width: 25px;
+  height: 25px;
+} */
+.patienLogin-button {
+  margin: 10px 0;
+  width: 80%;
+  border: none;
+  background-color: var(--red);
+  color: #fff;
+  padding: 8px 0;
+  border-radius: 0.3rem;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.patientRegiter-button {
+  /* margin: 50px 0 10px 0; */
+  margin: 10px 0;
+  width: 100%;
+  border: none;
+  background-color: var(--red);
+  color: #fff;
+  padding: 8px 0;
+  border-radius: 0.3rem;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.moadl-main button i {
+  font-size: 1.5rem;
+  animation: bounce 0.5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+/* ----------------Doctor Login--------------------------------------------------------------------- */
+
+.form {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  /* border: 1px solid red; */
+}
+.form .flag {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  transform: translate(-2%, -50%);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 222;
+  font-size: 1rem !important;
+  color: black !important;
+  width: max-content !important;
+}
+.form .flag img {
+  width: 20px;
+  margin-right: 3px;
+}
+.form__input_number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 0.3rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: black;
+  outline: none;
+  padding: 0 1rem 0 3.5rem;
+  background: none;
+  z-index: 1;
+}
+.form__input_number:focus + .form__label {
+  top: -0.5rem;
+  left: 0.5rem;
+  color: var(--sky-blue);
+  font-size: 0.7rem;
+  font-weight: 500;
+  z-index: 10;
+}
+.form__input_number:not(:placeholder-shown).form__input_number:not(:focus)
+  + .form__label {
+  top: -0.5rem;
+  left: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  z-index: 10;
+}
+.form .form__input_number:focus {
+  border-color: var(--sky-blue);
+}
+/* --------validate------------- */
+.otpValidateMessage {
+  position: absolute;
+  bottom: -55%;
+  left: 2%;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: red;
+  margin-bottom: 3px;
+}
+.form__input_number__validate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+  border-radius: 0.3rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: black;
+  outline: none;
+  padding: 0 1rem 0 3.5rem;
+  background: none;
+  z-index: 1;
+}
+.form__label__validate {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.4rem;
+  padding: 0 0.4rem;
+  color: red;
+  cursor: text;
+  transition: top 200ms ease-in left 200ms ease-in font-size 200ms ease-in;
+  background-color: white;
+  transition: 0.3s;
+}
+.form__input_number__validate:focus + .form__label__validate {
+  top: -0.5rem;
+  left: 0.5rem;
+  color: red;
+  font-size: 0.7rem;
+  font-weight: 500;
+  z-index: 10;
+}
+.form__input_number__validate:not(
+    :placeholder-shown
+  ).form__input_number__validate:not(:focus)
+  + .form__label__validate {
+  top: -0.5rem;
+  left: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  z-index: 10;
+}
+.form .form__input_number__validate:focus {
+  border-color: red;
+}
+
+.form .form__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 0.3rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: black;
+  outline: none;
+  padding: 0 1rem;
+  background: none;
+  z-index: 1;
+}
+.form .form__label {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.4rem;
+  padding: 0 0.4rem;
+  color: rgb(142, 142, 142);
+  cursor: text;
+  transition: top 200ms ease-in left 200ms ease-in font-size 200ms ease-in;
+  background-color: white;
+  transition: 0.3s;
+}
+.form__input:focus + .form__label {
+  top: -0.5rem;
+  left: 0.5rem;
+  color: var(--sky-blue);
+  font-size: 0.7rem;
+  font-weight: 500;
+  z-index: 10;
+}
+.form__input:not(:placeholder-shown).form__input:not(:focus) + .form__label {
+  top: -0.5rem;
+  left: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  z-index: 10;
+}
+.form .form__input:focus {
+  border-color: var(--sky-blue);
+}
+.form i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  color: #ed2f2f;
+  font-size: 1.2rem;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.toast-main {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0000003e;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.toast {
+  width: 270px;
+  height: max-content;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  /* position: relative; */
+}
+.toast-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.bxs-error-circle {
+  font-size: 2rem;
+  color: #ed0a3f;
+}
+.bx-check-circle {
+  font-size: 2rem;
+  color: #59cd59;
+}
+.toast-body p {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+.progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  overflow: hidden;
+}
+.progress::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #ed0a3f;
+  animation: progress 3s linear forwards;
+}
+@keyframes progress {
+  100% {
+    right: 100%;
+  }
+}
+.success {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  overflow: hidden;
+}
+.success::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #59cd59;
+  animation: progress 2s linear forwards;
+}
+@keyframes progress {
+  100% {
+    right: 100%;
+  }
+}
+
+.Doctor-Login-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 25px 0;
+}
+.Doctor-Login-main img {
+  /* width: 100px; */
+}
+.Doctor-Login-main span {
+  /* border: 1px solid red; */
+  color: var(--gray);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.Doctor-Login-main form {
+  /* border: 1px solid red; */
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.Doctor-Login-main form a {
+  text-align: end;
+  font-size: 0.8rem;
+  color: var(--sky-blue);
+  font-weight: 500;
+}
+.Doctor-Login-main form button {
+  border: none;
+  background-color: var(--red);
+  color: #fff;
+  padding: 8px 0;
+  border-radius: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.Doctor-Login-main form p {
+  margin: 0;
+  text-align: start;
+  font-size: 0.9rem;
+  color: var(--sky-blue);
+  font-weight: 500;
+  cursor: pointer;
+}
+.Doctor-Login-main form .gender {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.Doctor-Login-main form .gender span {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-right: 15px;
+}
+.Doctor-Login-main form .gender label {
+  font-size: 0.9rem;
+}
+
+.dr-services-modal {
+  /* border: 1px solid red; */
+  margin: 0 20px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+::ng-deep .p-steps .p-steps-item.p-highlight .p-steps-number {
+  background: var(--light-red);
+  color: var(--red);
+}
+/* ::ng-deep .p-steps .p-steps-item.p-highlight .p-steps-title {
+  display: none;
+} */
+.doc-vendor {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 0.3rem;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+}
+.doc-vendor h4 {
+  color: var(--sky-blue);
+  font-weight: 700;
+}
+.doc-select {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin-top: 15px;
+}
+::ng-deep .ng-select.custom1 {
+  width: 45%;
+}
+
+/* .ng-select.custom1::ng-deep .ng-select-container {
+  color: #333;
+  background-color: #fff;
+  border-radius: 0;
+  border: none;
+  height: 45px;
+  width: 40%;
+  align-items: center;
+  font-size: 0.9rem;
+} */
+/* .ng-select.custom1::ng-deep.ng-select-container .ng-value-container {
+  width: 450px;
+  display: flex;
+  flex: 1;
+} */
+/* .ng-select.custom1::ng-deep .ng-arrow-wrapper {
+  display: none;
+} */
+/* .ng-select.custom1::ng-deep
+  .ng-dropdown-panel.ng-select-bottom
+  .ng-dropdown-panel-items
+  .ng-option:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+} */
+/* .ng-select.custom1::ng-deep
+  .ng-dropdown-panel
+  .ng-dropdown-panel-items
+  .ng-option {
+  border-bottom: 1px solid var(--gray-border);
+  font-size: 0.9rem;
+} */
+/* .ng-select.custom1::ng-deep::-webkit-scrollbar {
+  width: 8px;
+} */
+/* .ng-select.custom1::ng-deep::-webkit-scrollbar-thumb {
+  background: var(--gray-border);
+} */
+::ng-deep .p-datepicker table td {
+  padding: 0.2rem !important;
+}
+
+::ng-deep .p-datepicker table td > span {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+::ng-deep .p-datepicker table {
+  font-size: 10pt;
+  margin: -0.143rem 0;
+}
+
+::ng-deep .p-datepicker .p-datepicker-header {
+  padding: 0rem;
+}
+::ng-deep .p-calendar {
+  width: 100%;
+}
+::ng-deep .p-calendar .p-inputtext {
+  padding: 5px;
+}
+.select-education {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  margin: 10px 0;
+}
+::ng-deep .ng-select.degree {
+  width: 100%;
+  margin: 10px 0;
+}
+.doc-vendor hr {
+  width: 100%;
+  margin: 5px 0;
+}
+.service-select {
+  /* border: 1px solid red; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+::ng-deep .ng-select.service {
+  width: 100%;
+  /* margin: 10px 0; */
+}
+.service-input {
+  /* border: 1px solid red; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.service-input input {
+  flex-basis: 48%;
+  padding: 5px 8px;
+  border-radius: 0.3rem;
+  border: 1px solid var(--gray-border);
+  outline: none;
+}
+
+.previous-next {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  margin: 30px 0;
+  flex-flow: row nowrap;
+}
+.previous {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-basis: 50%;
+}
+
+.next {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-basis: 50%;
+}
+.previous-next .stepButton {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--red);
+}
+.previous-next button i {
+  font-size: 1.5rem;
+}
+.submitButton {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 0.3rem;
+}
+.mapModal::ng-deep.p-dialog .p-dialog-header {
+  padding: 1.5rem 1.5rem 0.2rem 1.5rem;
+}
+.modal-map {
+  position: relative;
+}
+.modal-map p {
+  color: var(--font-gray);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.modal-map button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -5%);
+  background-color: var(--red);
+  padding: 8px 15px;
+  border: none;
+  border-radius: 0.3rem;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: 0.2s all;
+}
+.modal-map button:hover {
+  background-color: #af2e2e;
+}
+
+/* <!-- ------------side bar------------------------------------------------------- --> */
+.offcanvas-end {
+  width: 300px;
+}
+.offcanvas-body {
+  /* padding: 0 8px; */
+}
+.sideBar-main {
+  /* border: 1px solid red; */
+}
+.sideBar-main ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sideBar-main ul li {
+  width: 100%;
+  overflow: hidden;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: var(--sky-blue);
+  color: #fff;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.sideBar-main ul li:hover {
+  letter-spacing: 1px;
+}
+.login-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+.login-sub a {
+  text-decoration: none;
+  color: var(--sky-blue);
+  background-color: var(--light-blue);
+  border-radius: 0.2rem;
+  padding: 5px 10px;
+  transition: 0.3s ease-in-out;
+}
+.login-sub a:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 1023px) {
+  .nav-main {
+    padding: 20px 25px;
+  }
+  .logo-main img {
+    width: 160px;
+    /* height: 200px; */
+  }
+  .nav-left .phone {
+    display: none;
+  }
+  .location-Input input {
+    font-size: 0.8rem;
+  }
+  .location-Input i {
+    font-size: 1.1rem;
+  }
+  .login-sm {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .promotion-div ul li strong {
+    font-size: 0.8rem;
+  }
+  .promotion-div ul li a {
+    font-size: 0.7rem;
+  }
+  .promotion-dialog::ng-deep.p-dialog .p-dialog-header .p-dialog-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  .promotion-dialog::ng-deep.p-component,
+  .p-component * {
+    box-sizing: border-box;
+    font-size: 0.8rem;
+  }
+  .nav-main {
+    padding: 0;
+  }
+  .logo-main img {
+    width: 120px;
+  }
+  .navbar {
+    width: 100%;
+  }
+  .location-Input {
+    width: 100%;
+  }
+  .nav-left .phone {
+    display: none;
+  }
+  .ng-dialog::ng-deep.pi {
+    font-size: 1rem;
+  }
+  .loginModal-button-main img {
+    width: 40%;
+  }
+  .loginModal-button button {
+    font-size: 0.9rem;
+  }
+  .back-button {
+    font-size: 1.4rem;
+  }
+
+  .nav-left .login {
+    display: none;
+  }
+  .login-sm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: transparent;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .login-sm span {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 5px;
+    padding: 5px 0;
+  }
+  .login-sm span i {
+    font-size: 1.2rem;
+  }
+  .mapModal::ng-deep.p-dialog .p-dialog-header {
+    padding: 1.5rem 1.5rem 0.2rem 1.5rem;
+    font-size: 1.2rem;
+  }
+  .mapModal::ng-deep.p-dialog .p-dialog-header .p-dialog-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .modal-map {
+    position: relative;
+  }
+  .modal-map p {
+    font-size: 0.8rem;
+  }
+  .modal-map button {
+    font-size: 0.8rem;
+  }
+}

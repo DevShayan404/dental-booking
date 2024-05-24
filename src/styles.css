@@ -1,0 +1,32 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap"); */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+:root {
+  /* --brown: #f6a33b; */
+  --red: #e43c3c;
+  --sky-blue: #007fdf;
+  /* --sky-blue: #000045; */
+  --gray-border: #bec3c7;
+  --gray: #46484b;
+  --light-blue: #e2f1fb;
+  --navy: #000045;
+  --light-red: #ffe5e5;
+  --brown: #c8a951;
+  --black: #222;
+  --font-gray: #6c757d;
+  --green: #009d00;
+}
+.pac-container {
+  z-index: 100000 !important;
+}

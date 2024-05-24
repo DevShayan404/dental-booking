@@ -1,0 +1,61 @@
+.schedule-main {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* padding: 0 20px; */
+    /* border: 1px solid red; */
+  }
+  .schedule-msg {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .schedule-msg img {
+    width: 40%;
+    height: auto;
+  }
+  .mornig-main {
+    /* border: 1px solid red; */
+  }
+  .schedule-mornig {
+    /* border: 1px solid blue; */
+    position: relative;
+    padding: 3px 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--font-gray);
+  }
+  .schedule-mornig .img {
+    width: 25px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(-100%, 15%);
+  }
+  .schedule-time {
+    padding: 30px 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    flex-flow: row wrap;
+  }
+  .schedule-time button {
+    padding: 8px 15px;
+    border-radius: 0.3rem;
+    border: 1px solid var(--gray-border);
+    background-color: transparent;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s all;
+  }
+  .schedule-time button:hover {
+    background-color: var(--light-blue);
+    border: 1px solid var(--sky-blue);
+  }

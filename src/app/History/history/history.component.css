@@ -1,0 +1,425 @@
+section {
+  margin-top: 70px;
+  min-height: 100vh;
+  max-height: max-content;
+  background-color: #fafafa;
+}
+::ng-deep.p-inputswitch.p-focus .p-inputswitch-slider {
+  box-shadow: none;
+}
+::ng-deep.p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover
+  .p-inputswitch-slider {
+  background-color: #0168b7;
+}
+::ng-deep.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background: var(--sky-blue);
+}
+.slot-section {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+.slot-main {
+  /* border: 1px solid red; */
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.slot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.3rem;
+  padding: 10px 20px;
+  background-color: #fff;
+}
+.slot-header h3 {
+  margin: 0;
+}
+.input-switch {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+.activeSlots {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+.slot-body {
+  width: 100%;
+}
+.notAvail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.notAvail img {
+  max-width: 200px;
+}
+.notAvail strong {
+  color: var(--font-gray);
+}
+.slot-body .card {
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.3rem;
+  padding: 15px 20px;
+  border: none;
+}
+.card-slot-header {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+.card-slot-header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: calc(100% - 160px);
+}
+.card-slot-header-right h5 {
+  margin: 0;
+  font-weight: 600;
+  display: flex;
+  gap: 5px;
+}
+.card-slot-header-right h5 i {
+  color: var(--red);
+  font-size: 1rem;
+}
+.card-slot-header-right span {
+  font-size: 0.9rem;
+  color: var(--font-gray);
+  font-weight: 500;
+}
+.card-img {
+  width: max5-content;
+  border-radius: 4rem;
+}
+.card-img img {
+  max-width: 160px;
+  height: 60px;
+}
+.appointment-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--gray-border);
+  background-color: #f9f9f9;
+  border-radius: 0.3rem;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
+.dr-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.hideAvatar::ng-deep.p-avatar {
+  margin-top: 3px;
+  display: inline-block;
+}
+.hideAvatar::ng-deep .p-skeleton {
+  display: inline-block;
+}
+.dr-profile-detail {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  width: 100%;
+}
+.dr-profile-detail strong {
+  font-size: 1rem;
+  font-weight: 600;
+  flex-basis: 50%;
+}
+.dr-profile-detail ul {
+  flex-basis: 50%;
+  /* border: 1px solid red; */
+  border-left: 1px solid var(--gray-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dr-profile-detail ul li {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0 0 0 15px;
+}
+.dr-profile-detail ul li label {
+  font-weight: 600;
+  color: var(--font-gray);
+}
+.dr-profile-detail ul li span {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+.card-slot-header-left strong {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.card-slot-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-slot-footer .patient {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--font-gray);
+  font-weight: 500;
+}
+.card-slot-footer .patient span {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+}
+.card-slot-footer .patient span label {
+  font-size: 0.8rem;
+  color: black;
+}
+.card-slot-footer .patient i {
+  font-size: 1.5rem;
+}
+.card-slot-footer .previous-button {
+  padding: 3px 15px;
+  border-radius: 0.1rem;
+  border: none;
+  background-color: transparent;
+  color: var(--sky-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.card-slot-footer .active-button {
+  padding: 3px 15px;
+  border-radius: 0.1rem;
+  border: none;
+  background-color: transparent;
+  color: var(--red);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+::ng-deep.p-dialog {
+  padding: 20px;
+  background: #fff;
+}
+::ng-deep.p-button {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+}
+::ng-deep.p-dialog.p-confirm-dialog .p-confirm-dialog-icon {
+  font-size: 1.6rem;
+  color: var(--red);
+}
+::ng-deep.p-dialog.p-confirm-dialog .p-confirm-dialog-message {
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
+/* /////////////// */
+::ng-deep.p-dialog .p-dialog-header {
+  /* display: none; */
+  padding: 0;
+}
+::ng-deep.p-dialog .p-dialog-header-icons {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 5%;
+  right: 1%;
+
+  z-index: 1;
+}
+::ng-deep.p-dialog .p-dialog-content:last-of-type {
+  border-radius: 6px;
+}
+::ng-deep.p-dialog .p-dialog-content {
+  padding: 0.5rem 1rem;
+}
+::ng-deep.p-tabview-nav {
+  display: flex;
+  justify-content: center;
+}
+::ng-deep.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  padding: 1rem;
+  font-weight: 600;
+  margin: 0 0 -2px 0;
+}
+::ng-deep.p-tabview
+  .p-tabview-nav
+  li
+  .p-tabview-nav-link:not(.p-disabled):focus {
+  box-shadow: none;
+}
+.review_header {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 15px;
+  width: 100%;
+}
+.review_header h5 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+}
+.review_header h5 i {
+  color: var(--red);
+}
+.review_header .buttonRed {
+  padding: 3px 15px;
+  border-radius: 0.3rem;
+  border: none;
+  background-color: var(--red);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.review_header .buttongray {
+  padding: 3px 15px;
+  border-radius: 0.3rem;
+  border: none;
+  background-color: var(--gray-border);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: not-allowed;
+}
+::ng-deep.modalReview.p-rating .p-rating-icon.pi-star-fill {
+  color: #ffdf00;
+}
+::ng-deep.modalReview
+  .p-rating:not(.p-disabled):not(.p-readonly)
+  .p-rating-icon:hover {
+  color: #ffdf00;
+}
+::ng-deep.modalReview .p-rating .p-rating-icon:focus {
+  box-shadow: none !important;
+}
+::ng-deep.modalReview .p-rating .p-rating-icon {
+  color: #929292;
+  font-size: 1.6rem;
+}
+::ng-deep.p-inputtextarea-resizable {
+  overflow: hidden;
+  resize: none;
+  min-height: 100px;
+  max-height: 100px;
+}
+.success {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.success i {
+  font-size: 2.5rem;
+  color: var(--green);
+}
+@media (max-width: 1023px) {
+  .slot-main {
+    width: 90%;
+  }
+}
+@media (max-width: 767px) {
+  .slot-main {
+    width: 95%;
+  }
+  .slot-header h3 {
+    font-size: 1.2rem;
+  }
+  .card-slot-header-right h5 {
+    font-size: 1rem;
+  }
+  .card-slot-header-right h5 i {
+    font-size: 0.8rem;
+  }
+  .card-slot-header-right span {
+    font-size: 0.7rem;
+  }
+  .card-img img {
+    max-width: 120px;
+    height: 40px;
+  }
+
+  .appointment-card {
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+  .dr-profile {
+    gap: 0;
+  }
+  .hideAvatar::ng-deep.p-avatar {
+    display: none;
+  }
+  .hideAvatar::ng-deep .p-skeleton {
+    display: none;
+  }
+  .dr-profile-detail {
+    align-items: flex-start;
+    flex-flow: column wrap;
+    gap: 5px;
+  }
+  .dr-profile-detail strong {
+    font-size: 0.9rem;
+  }
+  .dr-profile-detail ul {
+    border: 0;
+  }
+  .dr-profile-detail ul li {
+    padding: 0;
+  }
+  .card-slot-header-left strong {
+    font-size: 1rem;
+  }
+
+  .card-slot-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-slot-footer .patient {
+    font-size: 0.9rem;
+  }
+  .card-slot-footer .patient span label {
+    font-size: 0.7rem;
+  }
+  .card-slot-footer .patient i {
+    font-size: 1.2rem;
+  }
+  .card-slot-footer .previous-button {
+    font-size: 0.8rem;
+  }
+  .card-slot-footer .active-button {
+    font-size: 0.8rem;
+  }
+
+  ::ng-deep.p-button {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+  ::ng-deep.p-dialog.p-confirm-dialog .p-confirm-dialog-icon {
+    font-size: 1.6rem;
+    color: var(--red);
+  }
+  ::ng-deep.p-dialog.p-confirm-dialog .p-confirm-dialog-message {
+    margin-left: 8px;
+    font-size: 0.9rem;
+  }
+}

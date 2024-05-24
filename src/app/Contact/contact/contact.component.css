@@ -1,0 +1,302 @@
+.contact-us{
+    margin-top: 70px;
+    background-color: #fafafa;
+}
+.contact-banner{
+    background-color: var(--sky-blue);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact-banner-img{
+    background-image: url('../../../assets/Images/contactus-banner.png');
+    height: 50vh;
+    width: 80%;
+      box-sizing: border-box;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+}
+.contact-banner-img h1{
+    font-weight: 600;
+    color: #fff;
+}
+.contact-banner-img span{
+    color: #fff;
+}
+
+.about-main p{
+    text-align: justify;
+    font-weight: 400;
+    color: var(--font-gray);
+}
+.contact-spec form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+}
+.contact-spec form button{
+    border: 2px solid var(--red);
+    border-radius: 0.2rem;
+    background-color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px 15px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.9rem;
+    width: 140px;
+}
+.contact-spec .card{
+    border: none;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    border-radius: 0;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+
+}
+.contact-spec .card strong{
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--sky-blue);
+}
+.contact-spec .card label span{
+  font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.form {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    /* border: 1px solid red; */
+  }
+.form .form__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 0.3rem;
+    font-family: inherit;
+    font-size: inherit;
+    color: black;
+    outline: none;
+    padding: 0 1rem ;
+    background: none;
+    z-index: 1;
+  }
+  .form .form__label {
+    position: absolute;
+    left: 0.5rem;
+    top: 0.4rem;
+    padding: 0 0.4rem;
+    color: rgb(142, 142, 142);
+    cursor: text;
+    transition: top 200ms ease-in left 200ms ease-in font-size 200ms ease-in;
+    background-color: #fafafa;
+    transition: 0.3s;
+  }
+  .form__input:focus + .form__label {
+    top: -0.5rem;
+    left: 0.5rem;
+    color: var(--sky-blue);
+    font-size: 0.7rem;
+    font-weight: 500;
+    z-index: 10;
+  }
+  .form__input:not(:placeholder-shown).form__input:not(:focus) + .form__label {
+    top: -0.5rem;
+    left: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    z-index: 10;
+  }
+  .form .form__input:focus {
+    border-color: var(--sky-blue);
+  }
+.form i{
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translate(2%, -50%);
+  color: red;
+}
+
+  .form1 {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+  }
+  .form1 .form__input1 {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+      height: 100%;
+      border: 1px solid  rgb(204, 204, 204);
+      border-radius: 0.3rem;
+      font-family: inherit;
+      font-size: .9rem;
+      color: black;
+      outline: none;
+      padding: 1rem;
+      background: none;
+      z-index: 1;
+  }
+  .form1 .form__input1__invalid {
+      border: 1px solid  red;
+  }
+  .form1 .form__label1{
+    position: absolute;
+    left: .5rem;
+    top: .4rem;
+    padding: 0 0.4rem;
+    color: rgb(142, 142, 142);
+    cursor: text;
+    transition: top 200ms ease-in
+    left 200ms ease-in
+    font-size 200ms ease-in;
+    background-color: #fafafa;
+    transition: 0.3s;
+  }
+  .form__input1:focus + .form__label1{
+    top: -.5rem;
+    left: .5rem;
+    color: #0275d8;
+    font-size: .7rem;
+    font-weight: 500;
+    z-index: 10;
+  }
+  .form__input1:not(:placeholder-shown).form__input1:not(:focus)+ .form__label1{
+    top: -.5rem;
+    left: .5rem;
+    font-size: .7rem;
+    font-weight: 500;
+    z-index:10;
+  }
+  .form1 .form__input1:focus{
+    border-color: #0275d8;
+  }
+  .form1 i{
+    position: absolute;
+    top: 20%;
+    right: 2%;
+    transform: translate(2%, -20%);
+    color: red;
+  }
+
+  .toast-main {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0000003e;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  .toast {
+    width: 270px;
+    height: max-content;
+    background-color: #fff;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .toast-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .toast-body .bxs-error-circle {
+    font-size: 2rem;
+    color: #ed0a3f;
+  }
+  .bx-check-circle {
+    font-size: 2rem;
+    color: #59cd59;
+  }
+  .toast-body p {
+    margin: 0;
+    padding: 0;
+    font-size: .9rem;
+    font-weight: 500;
+  }
+  .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .progress::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ed0a3f;
+    animation: progress 3s linear forwards;
+  }
+  @keyframes progress {
+    100% {
+      right: 100%;
+    }
+  }
+  .success {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .success::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #59cd59;
+    animation: progress 2s linear forwards;
+  }
+  @keyframes progress {
+    100% {
+      right: 100%;
+    }
+  }

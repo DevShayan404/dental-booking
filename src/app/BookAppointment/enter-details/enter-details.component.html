@@ -1,0 +1,407 @@
+<app-skeleton-enter-detail *ngIf="skeleton"></app-skeleton-enter-detail>
+<section class="main" *ngIf="!skeleton">
+  <div class="container g-0">
+    <div class="row">
+      <div class="col-sm-12 col-lg-8 p-4">
+        <div class="detail-scroll">
+          <div class="detail-main">
+            <div class="hospital-detail" *ngFor="let detail of hospitalDetails">
+              <div class="hopital-header">
+                <h3>
+                  {{ detail?.BusinessName }} <i class="bx bx-plus-medical"></i>
+                </h3>
+                <span>{{ detail?.Address1 }} </span>
+              </div>
+              <img *ngIf="detail?.ProfilePic === null" src="assets\Images\hospitalLogo.png" alt="" />
+              <img *ngIf="detail?.ProfilePic !== null" [src]="detail.ProfilePic" alt="">
+              <!-- <img src="assets\Images\hospitalLogo.png" /> -->
+            </div>
+            <!-- <hr /> -->
+            <div class="card">
+              <div class="card-header">
+                <strong>Appointment For</strong>
+                <div class="sub-header">
+                  <span
+                    [ngClass]="
+                      relation?.Id === relationId
+                        ? 'appointmentForSpanActive'
+                        : 'appointmentForSpan'
+                    "
+                    *ngFor="let relation of appointmentForList"
+                    (click)="selectRelation(relation)"
+                    ><i
+                      class="bx bx-check"
+                      *ngIf="relation?.Id === relationId"
+                    ></i
+                    >{{ relation?.Relation }}</span
+                  >
+                  <p (click)="someoneElse()">
+                    <i class="bx bx-plus"></i>Someone else
+                  </p>
+                </div>
+              </div>
+              <div class="card-body">
+                <strong><i class="bx bx-user"></i>Patient Name</strong>
+                <input
+                  [(ngModel)]="patientName"
+                  type="text"
+                  placeholder="Enter your name"
+                  disabled
+                />
+                <div class="sub-body">
+                  <strong>Phone Number</strong>
+                  <span>+1 {{ getPatientNumber }}</span>
+                </div>
+                <span
+                  ><i class="bx bx-error-circle"></i> You will be contacted
+                  through this number</span
+                >
+              </div>
+              <div class="card-footer">
+                <div class="card-footer-div">
+                  <strong
+                    ><i class="bx bx-wallet"></i> Select Payment Method</strong
+                  >
+                  <button *ngIf="cardList.length > 0" (click)="openCardForm()">
+                    <span *ngIf="!cardFormOpen">Add Card</span>
+                    <span *ngIf="cardFormOpen">Back</span>
+                  </button>
+                </div>
+                <div class="showCardForm" *ngIf="cardFormOpen">
+                  <div class="sub-footer">
+                    <span
+                      ><input type="radio" checked />Pay via Credit / Debit
+                      Card</span
+                    >
+                    <span>
+                      <img src="assets\Images\masterCard.png" alt="" />
+                      <img src="assets\Images\visaCard.png" alt="" />
+                    </span>
+                  </div>
+
+                  <div class="cartMain">
+                    <strong>Enter Your Cart Details</strong>
+                    <form
+                      [formGroup]="creditCartForm"
+                      (ngSubmit)="submitCreditCartForm(creditCartForm.value)"
+                    >
+                      <div class="cart__form">
+                        <img
+                          src="assets\Images\defaultCart.png"
+                          id="cardTypeIcon"
+                          alt="Card Type Icon"
+                        />
+                        <input
+                          type="text"
+                          class=""
+                          [ngClass]="creditCartForm.get('cartNumber')?.touched && creditCartForm.get('cartNumber')?.errors?.['required'] ? 'cartFormInputActive' : 'cart__form__input' "
+                          autocomplete="off"
+                          placeholder=" "
+                          formControlName="cartNumber"
+                          (input)="onCardNumberInput($event)"
+                        />
+                        <label
+                          for="Designation"
+                          [ngClass]="creditCartForm.get('cartNumber')?.touched && creditCartForm.get('cartNumber')?.errors?.['required'] ? 'cartFormLabelActive' : 'cart__form__label' "
+                          >Card Number</label
+                        >
+                      </div>
+                      <div class="cart__form">
+                        <input
+                          type="text"
+                          [ngClass]="creditCartForm.get('cartHolderName')?.touched && creditCartForm.get('cartHolderName')?.errors?.['required'] ? 'cartFormInputActive' : 'cart__form__input' "
+                          autocomplete="off"
+                          placeholder=" "
+                          formControlName="cartHolderName"
+                        />
+                        <label
+                          for="Designation"
+                          [ngClass]="creditCartForm.get('cartHolderName')?.touched && creditCartForm.get('cartHolderName')?.errors?.['required'] ? 'cartFormLabelActive' : 'cart__form__label' "
+                          >Card Holder Name</label
+                        >
+                      </div>
+                      <div class="cart-input">
+                        <div class="cart__form">
+                          <input
+                            type="text"
+                            [ngClass]="creditCartForm.get('mmyy')?.touched && creditCartForm.get('mmyy')?.errors?.['required'] ? 'cartFormInputActive' : 'cart__form__input' "
+                            autocomplete="off"
+                            placeholder=" "
+                            formControlName="mmyy"
+                            (input)="onMMYYInput($event)"
+                          />
+                          <label
+                            for="Designation"
+                            [ngClass]="creditCartForm.get('mmyy')?.touched && creditCartForm.get('mmyy')?.errors?.['required'] ? 'cartFormLabelActive' : 'cart__form__label' "
+                            >MMYY</label
+                          >
+                        </div>
+                        <div class="cart__form">
+                          <input
+                            type="text"
+                            [ngClass]="creditCartForm.get('cvv')?.touched && creditCartForm.get('cvv')?.errors?.['required'] ? 'cartFormInputActive' : 'cart__form__input' "
+                            autocomplete="off"
+                            placeholder=" "
+                            formControlName="cvv"
+                            (input)="onPhoneNumberInput($event)"
+                          />
+                          <label
+                            for="Designation"
+                            [ngClass]="creditCartForm.get('cvv')?.touched && creditCartForm.get('cvv')?.errors?.['required'] ? 'cartFormLabelActive' : 'cart__form__label' "
+                            >CVV</label
+                          >
+                        </div>
+                      </div>
+                      <div class="saveCard">
+                        <input type="checkbox" (click)="saveCart()" />
+                        <label>Save Card</label>
+                      </div>
+
+                      <!-- <button
+                      [ngClass]="{
+                        creditFormButton: creditCartForm.valid,
+                        creditFormVButtonActive: creditCartForm.invalid
+                      }"
+                    >
+                    <span *ngIf="cartSave">Save Cart</span>
+                      <span  *ngIf="!cartSave">Confirm</span>
+                    </button> -->
+                    </form>
+                  </div>
+                </div>
+                <div class="showCardForm" *ngIf="!cardFormOpen">
+                  <div class="sub-footer" *ngFor="let list of cardList">
+                    <span
+                      ><input
+                        type="radio"
+                        [(ngModel)]="selectedCard"
+                        [value]="list.Id"
+                        (click)="selectCard(list)"
+                      />{{ list.CardNumber }}</span
+                    >
+                    <span>
+                      <img
+                        *ngIf="list.CardType === 'mastercard'"
+                        src="assets\Images\masterCard.png"
+                        alt=""
+                      />
+                      <img
+                        *ngIf="list.CardType === 'visa'"
+                        src="assets\Images\visaCard.png"
+                        alt=""
+                      />
+                      <img
+                        *ngIf="
+                          list.CardType !== 'visa' &&
+                          list.CardType !== 'mastercard'
+                        "
+                        src="assets/Images/defaultCart.png"
+                        alt=""
+                      />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-lg-4 p-4">
+        <div class="card-profile">
+          <!-- <h5>{{ hospitalName }}</h5> -->
+          <div class="card-body-profile">
+            <div class="body-profile">
+              <img src="assets\Images\people1.png" alt="" />
+            </div>
+            <div class="profile-tittle">
+              <strong
+                >{{ drData.Doctor.InitialName }} {{ drData.Doctor.FirstName }}
+                {{ drData.Doctor.LastName }}</strong
+              >
+              <span>Dentist, Cosmetic Dentist</span>
+              <!-- <span
+                >Video consultation:
+                <strong>$ {{ drData.Doctor.Fees }}</strong></span
+              > -->
+              <p>
+                <i class="bx bx-time"></i
+                >{{ appointmentData.Appointment | date : "MMM dd, h:mm a" }}
+              </p>
+            </div>
+          </div>
+          <div class="fees-div">
+            <ul *ngFor="let fee of fees">
+              <li>
+                <span>{{ fee?.FeeType?.Type }}</span>
+                <span>{{ fee?.Amount }} $</span>
+              </li>
+            </ul>
+            <hr />
+            <ul>
+              <li>
+                <strong>Total</strong><strong>{{ totalAmount }} $</strong>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <button
+              class="card-footer-button"
+              (click)="submitCreditCartForm(creditCartForm.value)"
+            >
+              <span *ngIf="!spinner">Confirm Booking</span>
+              <div
+                *ngIf="spinner"
+                class="spinner-border spinner-border-sm text-light"
+                role="status"
+              >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ----------------------MOdal------------------------------- -->
+<p-dialog
+  class="confirmModal"
+  [(visible)]="confirmPopup"
+  [modal]="true"
+  [style]="{ width: '30vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div class="confirm">
+    <i class="bx bxs-badge-check"></i>
+    <p>Your Appointment is Booked Successfully</p>
+    <!-- <button>Go to Home</button> -->
+  </div>
+</p-dialog>
+
+<p-dialog
+  class="someOneModal"
+  header="Add a Family Member"
+  [(visible)]="showModalSomeOne"
+  [breakpoints]="{ '1024px': '80%', '768px': '90%' }"
+  [style]="{ width: '40vw' }"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <form
+    [formGroup]="SomeOneForm"
+    (ngSubmit)="submitSomeOneForm(SomeOneForm.value)"
+  >
+    <div class="someOne-main">
+      <div class="patientName-main">
+        <div class="form">
+          <input
+            type="text"
+            class="form__input"
+            autocomplete="off"
+            placeholder=" "
+            formControlName="patientName"
+          />
+          <label for="Designation" class="form__label">Patient Name</label>
+        </div>
+      </div>
+      <div class="patientName-main">
+        <div class="patient-input">
+          <div class="form">
+            <input
+              type="text"
+              class="form__input_number"
+              autocomplete="off"
+              formControlName="phoneNo"
+              (focus)="onInputFocus()"
+              (blur)="onInputBlur()"
+              (input)="onPhoneNumberInput($event)"
+              placeholder=" "
+            />
+            <label for="Designation" class="form__label">Phone no.</label>
+            <span *ngIf="showFlag"
+              ><img src="assets\Images\canada.png" />+1</span
+            >
+          </div>
+        </div>
+        <div class="patient-input">
+          <div class="form">
+            <input
+              type="text"
+              class="form__input"
+              autocomplete="off"
+              formControlName="Relation"
+              placeholder=" "
+            />
+            <label for="Designation" class="form__label">Relation</label>
+          </div>
+        </div>
+      </div>
+      <div class="patient-input">
+        <label class="gender">Gender</label>
+        <div class="gender-input">
+          <span
+            [ngClass]="{
+              genderMale: selectedGender === 'male',
+              genderFemale: selectedGender === 'female'
+            }"
+            (click)="selectGender('male')"
+            ><i
+              [ngClass]="{ 'bx bx-check': selectedGender === 'male' }"
+              class=""
+            ></i
+            >Male</span
+          >
+          <span
+            [ngClass]="{
+              genderFemale: selectedGender === 'male',
+              genderMale: selectedGender === 'female'
+            }"
+            (click)="selectGender('female')"
+            ><i
+              [ngClass]="{ 'bx bx-check': selectedGender === 'female' }"
+              class=""
+            ></i
+            >Female</span
+          >
+        </div>
+      </div>
+      <!-- <div class="patient-input">
+      <label for="">Phone Number</label>
+      <span class="phone-input">+1 {{ getPatientNumber }}</span>
+      <span class="phone-text"
+        ><i class="bx bx-error-circle"></i> You will be contacted through this
+        number</span
+      >
+    </div> -->
+      <button>
+        <span>Add Family Member</span>
+        <div
+          *ngIf="someOneSpinner"
+          class="spinner-border spinner-border-sm text-light"
+          role="status"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </button>
+    </div>
+  </form>
+</p-dialog>
+
+<p-toast
+  key="toast1"
+  position="bottom-right"
+  [showTransformOptions]="'translateY(100%)'"
+  [showTransitionOptions]="'500ms'"
+  [hideTransitionOptions]="'500ms'"
+  [showTransformOptions]="'translateX(100%)'"
+></p-toast>
+<p-toast
+  key="toast2"
+  position="bottom-right"
+  [showTransformOptions]="'translateY(100%)'"
+  [showTransitionOptions]="'500ms'"
+  [hideTransitionOptions]="'500ms'"
+  [showTransformOptions]="'translateX(100%)'"
+></p-toast>

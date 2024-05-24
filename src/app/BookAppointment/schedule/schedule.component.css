@@ -1,0 +1,370 @@
+.loader {
+  /* border: 1px solid red; */
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader img {
+  width: 15%;
+  height: auto;
+}
+.bookAppointment-main {
+  margin-top: 70px;
+  /* border: 1px solid red; */
+  background-color: #f9f9f9;
+  padding: 30px 0;
+}
+.bookAppointment-main .row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.tabView-loader {
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tabView-loader img {
+  width: 10%;
+  height: auto;
+}
+.ng-card::ng-deep.p-card-content {
+  padding: 0;
+}
+.ng-tab::ng-deep .p-tabview-nav-btn.p-link {
+  width: 1.5rem;
+  /* padding-left: 10px; */
+  color: var(--sky-blue);
+}
+.ng-tab::ng-deep .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  /* background: #ffffff; */
+  border-color: var(--sky-blue);
+  color: var(--sky-blue);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 1.1rem 1.5rem;
+}
+.ng-tab::ng-deep .p-tabview-nav li .p-tabview-nav-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 1.25rem 2rem;
+}
+.card-body-left {
+  display: flex;
+  /* border: 1px solid black; */
+  justify-content: flex-start;
+  align-items: center;
+}
+.card-img {
+  width: max-content;
+  border: 2px solid var(--brown);
+  border-radius: 4rem;
+}
+.card-img img {
+  width: 80px;
+}
+.card-content {
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+.card-content strong {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.card-content span {
+  font-size: 0.8rem;
+  color: var(--font-gray);
+  display: flex;
+  gap: 10px;
+}
+.card-content p {
+  margin: 0;
+  padding: 0;
+  color: var(--black);
+  font-weight: 500;
+  text-decoration: underline;
+}
+.ng-tab .row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+}
+
+.schedule-main {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* border: 1px solid red; */
+}
+.schedule-msg {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.schedule-msg img {
+  width: 40%;
+  height: auto;
+}
+.mornig-main {
+  /* border: 1px solid red; */
+}
+.schedule-mornig {
+  /* border: 1px solid blue; */
+  position: relative;
+  padding: 3px 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--font-gray);
+}
+.schedule-mornig img {
+  width: 25px;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform: translate(-100%, 0%);
+}
+.schedule-time {
+  padding: 30px 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  flex-flow: row wrap;
+}
+/* .schedule-time button{
+  border: none;
+  background-color: transparent;
+  display: flex;
+  border: 1px solid red;
+  width: 100%;
+} */
+.BookedSlot{
+  padding: 8px 15px;
+  border-radius: 0.3rem;
+  border: 1px solid var(--gray-border);
+  background-color: transparent;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s all;
+  /* flex-basis: 18%; */
+  width: 90px;
+  color: var(--gray-border);
+}
+.schedule-time .NotBookedSlot {
+  padding: 8px 15px;
+  border-radius: 0.3rem;
+  border: 1px solid var(--gray-border);
+  background-color: transparent;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s all;
+  width: 90px;
+  /* flex-basis: 18%; */
+}
+.schedule-time .NotBookedSlot:hover {
+  background-color: var(--light-blue);
+  border: 1px solid var(--sky-blue);
+}
+.satisfied-main {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.satisfied-img img {
+  width: 130px;
+}
+.satisfied-content strong {
+  font-size: 0.9rem;
+}
+.satisfied-content span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--font-gray);
+}
+.footer {
+}
+.footer strong {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--sky-blue);
+}
+.footer-sub {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+.footer-sub span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--font-gray);
+  text-decoration: underline;
+}
+
+.ng-dialog::ng-deep.p-dialog-header {
+  /* border-bottom: 1px solid var(--gray-border); */
+  background-color: #fff;
+  color: var(--sky-blue);
+  padding: 0;
+  font-size: 1rem;
+}
+.ng-dialog::ng-deep.p-dialog-header .p-dialog-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.ng-dialog::ng-deep.p-dialog-content {
+  color: #495057;
+  padding: 1.5rem;
+}
+.moadl-main {
+  /* border: 1px solid red; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+}
+.moadl-main strong {
+  color: var(--sky-blue);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.moadl-main p {
+  font-size: 0.8rem;
+}
+.field {
+  display: flex;
+  position: relative;
+  width: max-content;
+}
+.field::ng-deep.p-inputtext {
+  width: 300px;
+  padding: 8px 15px 8px 60px;
+  margin-top: 20px;
+}
+.field span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  top: 49%;
+  left: 10%;
+  transform: translate(-50%, 0%);
+}
+.field span img {
+  width: 25px;
+  height: 25px;
+}
+.moadl-main button {
+  margin-top: 50px;
+  width: 80%;
+  border: none;
+  background-color: var(--red);
+  color: #fff;
+  padding: 8px 0;
+  border-radius: 0.3rem;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.moadl-main button i {
+  font-size: 1.5rem;
+  animation: bounce 0.5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+/* ------------- */
+
+  .toast-main {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0000003e;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  .toast {
+    width: 270px;
+    height: max-content;
+    background-color: #fff;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .toast-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .bxs-error-circle {
+    font-size: 2rem;
+    color: #ed0a3f;
+  }
+  .toast-body p {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+  }
+  .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .progress::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ed0a3f;
+    animation: progress 2s linear forwards;
+  }
+  @keyframes progress {
+    100% {
+      right: 100%;
+    }
+  }

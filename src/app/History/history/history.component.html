@@ -1,0 +1,505 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="slot-section">
+        <div class="slot-main">
+          <div class="slot-header">
+            <h3 *ngIf="checked">Active Appointments</h3>
+            <h3 *ngIf="!checked">Past Appointments</h3>
+            <div class="input-switch">
+              <!-- Previous -->
+              <p-inputSwitch
+                [(ngModel)]="checked"
+                (onChange)="onSwitchChange()"
+              ></p-inputSwitch>
+              <!-- Active -->
+            </div>
+          </div>
+          <div class="slot-body" *ngIf="skeleton">
+            <div class="activeSlots">
+              <div class="card">
+                <div class="card-slot-header">
+                  <div class="card-slot-header-right">
+                    <p-skeleton
+                      width="60%"
+                      height="1.5rem"
+                      styleClass="mb-1"
+                    ></p-skeleton>
+                    <p-skeleton width="80%"></p-skeleton>
+                  </div>
+                  <div class="card-slot-header-left">
+                    <p-skeleton
+                      width="8rem"
+                      height="3rem"
+                      styleClass="mb-1"
+                    ></p-skeleton>
+                  </div>
+                </div>
+                <div class="appointment-card">
+                  <div class="dr-profile">
+                    <p-skeleton
+                      class="hideAvatar"
+                      shape="circle"
+                      size="3rem"
+                    ></p-skeleton>
+
+                    <div class="dr-profile-detail">
+                      <strong
+                        ><p-skeleton width="12rem" height="1.5rem"></p-skeleton
+                      ></strong>
+                      <!-- <hr /> -->
+                      <ul>
+                        <li>
+                          <p-skeleton
+                            width="6rem"
+                            styleClass="mb-2"
+                          ></p-skeleton>
+                        </li>
+                        <li>
+                          <p-skeleton
+                            width="6rem"
+                            styleClass="mb-2"
+                          ></p-skeleton>
+                        </li>
+                        <li><p-skeleton width="6rem"></p-skeleton></li>
+                        <li>
+                          <p-skeleton width="6rem"></p-skeleton>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+                <div class="card-slot-footer">
+                  <div class="patient">
+                    <p-skeleton width="10rem" height="1.5rem"></p-skeleton>
+                  </div>
+                  <p-skeleton width="5rem" height="1.5rem"></p-skeleton>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-slot-header">
+                  <div class="card-slot-header-right">
+                    <p-skeleton
+                      width="60%"
+                      height="1.5rem"
+                      styleClass="mb-1"
+                    ></p-skeleton>
+                    <p-skeleton width="80%"></p-skeleton>
+                  </div>
+                  <div class="card-slot-header-left">
+                    <p-skeleton
+                      width="8rem"
+                      height="3rem"
+                      styleClass="mb-1"
+                    ></p-skeleton>
+                  </div>
+                </div>
+                <div class="appointment-card">
+                  <div class="dr-profile">
+                    <p-skeleton
+                      class="hideAvatar"
+                      shape="circle"
+                      size="3rem"
+                    ></p-skeleton>
+
+                    <div class="dr-profile-detail">
+                      <strong
+                        ><p-skeleton width="12rem" height="1.5rem"></p-skeleton
+                      ></strong>
+                      <!-- <hr /> -->
+                      <ul>
+                        <li>
+                          <p-skeleton
+                            width="6rem"
+                            styleClass="mb-2"
+                          ></p-skeleton>
+                        </li>
+                        <li>
+                          <p-skeleton
+                            width="6rem"
+                            styleClass="mb-2"
+                          ></p-skeleton>
+                        </li>
+                        <li><p-skeleton width="6rem"></p-skeleton></li>
+                        <li>
+                          <p-skeleton width="6rem"></p-skeleton>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+                <div class="card-slot-footer">
+                  <div class="patient">
+                    <p-skeleton width="10rem" height="1.5rem"></p-skeleton>
+                  </div>
+                  <p-skeleton width="5rem" height="1.5rem"></p-skeleton>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slot-body" *ngIf="!skeleton">
+            <div class="notAvail" *ngIf="historyList.length === 0">
+              <img src="assets\animation\notAvailSlot.gif" alt="" />
+              <strong>No Data</strong>
+            </div>
+
+            <div class="activeSlots" *ngIf="checked && historyList.length > 0">
+              <div class="card" *ngFor="let list of historyList">
+                <div class="card-slot-header">
+                  <div class="card-slot-header-right">
+                    <h5>
+                      {{ list?.DoctorVendor?.Vendor?.BusinessName
+                      }}<i class="bx bx-plus-medical"></i>
+                    </h5>
+                    <span>{{ list?.DoctorVendor?.Vendor?.Address1 }}</span>
+                  </div>
+                  <div class="card-slot-header-left">
+                    <div class="card-img">
+                      <img
+                        *ngIf="list?.DoctorVendor?.Vendor?.ProfilePic !== null"
+                        [src]="list?.DoctorVendor?.Vendor?.ProfilePic"
+                        alt=""
+                      />
+                      <img
+                        *ngIf="list?.DoctorVendor?.Vendor?.ProfilePic === null"
+                        src="assets\Images\hospitalLogo.png"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="appointment-card">
+                  <div class="dr-profile">
+                    <p-avatar
+                      class="hideAvatar"
+                      image="assets\Images\people1.png"
+                      size="small"
+                      shape="circle"
+                    ></p-avatar>
+
+                    <div class="dr-profile-detail">
+                      <strong
+                        >{{ list?.DoctorVendor?.Doctor?.InitialName }}
+                        {{ list?.DoctorVendor?.Doctor?.FirstName }}
+                        {{ list?.DoctorVendor?.Doctor?.LastName }}</strong
+                      >
+                      <!-- <hr /> -->
+                      <ul>
+                        <li>
+                          <label>Date:</label
+                          ><span>{{ list?.Appointment | date : "dd/MM" }}</span>
+                        </li>
+                        <li>
+                          <label>Time:</label
+                          ><span>{{
+                            list?.Appointment | date : "h:mm a"
+                          }}</span>
+                        </li>
+                        <li>
+                          <label>Fees:</label
+                          ><span>{{ list?.InitialFees }} $</span>
+                        </li>
+                        <li>
+                          <label>Status:</label
+                          ><span
+                            *ngIf="
+                              list?.AppointmentStatus?.AppointmentStatusName
+                                ?.length < 10
+                            "
+                            >{{
+                              list?.AppointmentStatus?.AppointmentStatusName
+                            }}</span
+                          >
+                          <span
+                            *ngIf="
+                              list?.AppointmentStatus?.AppointmentStatusName
+                                ?.length > 10
+                            "
+                            [pTooltip]="
+                              list?.AppointmentStatus?.AppointmentStatusName
+                            "
+                            tooltipPosition="top"
+                            >{{
+                              list?.AppointmentStatus?.AppointmentStatusName
+                                | slice : 0 : 9
+                            }}...</span
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+                <div class="card-slot-footer">
+                  <div class="patient">
+                    <i class="bx bx-user"></i>
+                    <span
+                      >{{ list?.Patient?.Name }}
+                      <label>( {{ list?.Patient?.Relation }} )</label></span
+                    >
+                  </div>
+                  <button
+                    *ngIf="
+                      list?.AppointmentStatus?.AppointmentStatusName ===
+                        'Payed' && list?.VisitStatus !== 1
+                    "
+                    class="active-button"
+                  >
+                    <span (click)="cancelAppointment(list)">Cancel</span>
+                  </button>
+                  <button
+                    *ngIf="list?.VisitStatus === 1"
+                    class="active-button"
+                    (click)="openReviewModal(list)"
+                  >
+                    <span>Review</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="activeSlots" *ngIf="!checked && historyList.length > 0">
+              <div class="card" *ngFor="let list of historyList">
+           
+                <div class="card-slot-header">
+                  <div class="card-slot-header-right">
+                    <h5>
+                      {{ list?.DoctorVendor?.Vendor?.BusinessName
+                      }}<i class="bx bx-plus-medical"></i>
+                    </h5>
+                    <span>{{ list?.DoctorVendor?.Vendor?.Address1 }}</span>
+                  </div>
+                  <div class="card-slot-header-left">
+                    <div class="card-img">
+                      <img
+                        *ngIf="list?.DoctorVendor?.Vendor?.ProfilePic !== null"
+                        [src]="list?.DoctorVendor?.Vendor?.ProfilePic"
+                        alt=""
+                      />
+                      <img
+                        *ngIf="list?.DoctorVendor?.Vendor?.ProfilePic === null"
+                        src="assets\Images\hospitalLogo.png"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="appointment-card">
+                  <div class="dr-profile">
+                    <p-avatar
+                      class="hideAvatar"
+                      image="assets\Images\people1.png"
+                      size="large"
+                      shape="circle"
+                    ></p-avatar>
+
+                    <div class="dr-profile-detail">
+                      <strong
+                        >{{ list?.DoctorVendor?.Doctor?.InitialName }}
+                        {{ list?.DoctorVendor?.Doctor?.FirstName }}
+                        {{ list?.DoctorVendor?.Doctor?.LastName }}</strong
+                      >
+                      <!-- <hr /> -->
+                      <ul>
+                        <li>
+                          <label>Date:</label
+                          ><span>{{ list?.Appointment | date : "dd/MM" }}</span>
+                        </li>
+                        <li>
+                          <label>Time:</label
+                          ><span>{{
+                            list?.Appointment | date : "h:mm a"
+                          }}</span>
+                        </li>
+                        <li><label>Fees:</label><span>100 $</span></li>
+                        <li>
+                          <label>Status:</label
+                          ><span
+                            *ngIf="
+                              list?.AppointmentStatus?.AppointmentStatusName
+                                ?.length < 9
+                            "
+                            >{{
+                              list?.AppointmentStatus?.AppointmentStatusName
+                            }}</span
+                          >
+                          <span
+                            *ngIf="
+                              list?.AppointmentStatus?.AppointmentStatusName
+                                ?.length > 9
+                            "
+                            [pTooltip]="
+                              list?.AppointmentStatus?.AppointmentStatusName
+                            "
+                            tooltipPosition="top"
+                            >{{
+                              list?.AppointmentStatus?.AppointmentStatusName
+                                | slice : 0 : 8
+                            }}...</span
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+                <div class="card-slot-footer">
+                  <div class="patient">
+                    <i class="bx bx-user"></i>
+                    <span
+                      >{{ list?.Patient?.Name }}
+                      <label>( {{ list?.Patient?.Relation }} )</label></span
+                    >
+                  </div>
+                  <button
+                    class="previous-button"
+                    *ngIf="
+                      list?.AppointmentStatus?.AppointmentStatusName ===
+                        'Payed' && list?.VisitStatus !== 1
+                    "
+                  >
+                    <span>Revisit</span>
+                  </button>
+                  <button
+                    *ngIf="list?.VisitStatus === 1"
+                    class="active-button"
+                    (click)="openReviewModal(list)"
+                  >
+                    <span>Review</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<p-toast></p-toast>
+<p-confirmDialog
+  [breakpoints]="{ '1024px': '50%', '766px': '90%' }"
+  [style]="{ width: '30vw' }"
+></p-confirmDialog>
+
+<p-dialog
+  class="mapModal"
+  [(visible)]="reviewModal"
+  position="center"
+  [modal]="true"
+  [breakpoints]="{ '1023px': '30%', '767px': '80%' }"
+  [style]="{ width: '30%' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <p-tabView [(activeIndex)]="activeIndex">
+    <p-tabPanel header="For Hospital">
+      <div class="review_header" *ngIf="!successHospital">
+        <!-- <h5>Aligner Fit<i class="bx bx-plus-medical"></i></h5> -->
+        <h5>
+          {{ reviewModalData?.DoctorVendor?.Vendor?.BusinessName
+          }}<i class="bx bx-plus-medical"></i>
+        </h5>
+        <p-rating
+          class="modalReview"
+          [(ngModel)]="HospitalValue"
+          [cancel]="false"
+        ></p-rating>
+        <textarea
+          rows="3"
+          cols="40"
+          pInputTextarea
+          [autoResize]="true"
+          [(ngModel)]="hospitalRemarks"
+          placeholder="Remarks"
+        ></textarea>
+        <button
+          *ngIf="
+            this.HospitalValue !== undefined &&
+            this.hospitalRemarks !== undefined
+          "
+          class="buttonRed"
+          (click)="submitReviewHospital(reviewModalData)"
+        >
+          Submit
+          <div
+            *ngIf="spinner"
+            class="spinner-border spinner-border-sm"
+            role="status"
+          >
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+        <button
+          *ngIf="
+            this.HospitalValue === undefined ||
+            this.hospitalRemarks === undefined
+          "
+          class="buttongray"
+        >
+          Submit
+        </button>
+      </div>
+      <div *ngIf="successHospital" class="success">
+        <i class="bx bx-check-circle"></i>
+        <strong>Your Review Submit</strong>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="For Doctor">
+      <div class="review_header" *ngIf="!successdoctor">
+        <!-- <h5>Dr. Shayan Sheikh</h5> -->
+        <h5>
+          <p-avatar
+            class="hideAvatar"
+            image="assets\Images\people1.png"
+            size="small"
+            shape="circle"
+          ></p-avatar>
+          {{ reviewModalData?.DoctorVendor?.Doctor?.InitialName }}
+          {{ reviewModalData?.DoctorVendor?.Doctor?.FirstName }}
+          {{ reviewModalData?.DoctorVendor?.Doctor?.LastName }}
+        </h5>
+        <p-rating [(ngModel)]="DoctorValue" [cancel]="false"></p-rating>
+        <textarea
+          rows="3"
+          cols="40"
+          pInputTextarea
+          [autoResize]="true"
+          placeholder="Remarks"
+          [(ngModel)]="DoctorRemarks"
+        ></textarea>
+        <button
+          *ngIf="
+            this.DoctorValue !== undefined && this.DoctorRemarks !== undefined
+          "
+          class="buttonRed"
+          (click)="submitReviewDoctor(reviewModalData)"
+        >
+          Submit
+          <div
+            *ngIf="spinner"
+            class="spinner-border spinner-border-sm"
+            role="status"
+          >
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+        <button
+          *ngIf="
+            this.DoctorValue === undefined || this.DoctorRemarks === undefined
+          "
+          class="buttongray"
+        >
+          Submit
+        </button>
+      </div>
+      <div *ngIf="successdoctor" class="success">
+        <i class="bx bx-check-circle"></i>
+        <strong>Your Review Submit</strong>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+</p-dialog>

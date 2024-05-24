@@ -1,0 +1,49 @@
+section{
+    margin-top: 70px;
+    background-color: #fafafa;
+}
+p{
+    font-size: .9rem;
+    text-align: justify;
+}
+.privacy-main{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.privacy-main h2{
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 20px;
+}
+.privacy-main ol{
+    margin: 0;
+    padding: 0;
+}
+.privacy-main ol li{
+    font-weight: bold;
+}
+.privacy-main ol li strong{
+
+}
+.privacy-main ol li p{
+    font-weight: 400;
+    margin: 20px 0;
+    text-align: justify;
+}
+.sub{
+    margin-top: 10px;
+}
+.privacy-main ol li ul{
+    /* margin: 0;
+    padding: 0; */
+    list-style: disc;
+    margin-bottom: 20px;
+}
+.privacy-main ol li ul li{
+    font-weight: 400;
+    font-size: .9rem;
+    text-align: justify;
+}

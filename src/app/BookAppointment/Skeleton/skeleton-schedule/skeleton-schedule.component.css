@@ -1,0 +1,189 @@
+.bookAppointment-main {
+    margin-top: 60px;
+    /* border: 1px solid red; */
+    background-color: #f9f9f9;
+    padding: 30px 0;
+  }
+  .bookAppointment-main .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .tabView-loader {
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tabView-loader img {
+    width: 10%;
+    height: auto;
+  }
+  .ng-card::ng-deep.p-card-content {
+    padding: 0;
+  }
+  .ng-tab::ng-deep .p-tabview-nav-btn.p-link {
+    width: 1.5rem;
+    /* padding-left: 10px; */
+    color: var(--sky-blue);
+  }
+  .ng-tab::ng-deep .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    /* background: #ffffff; */
+    border-color: var(--sky-blue);
+    color: var(--sky-blue);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 1.1rem 1.5rem;
+  }
+  .ng-tab::ng-deep .p-tabview-nav li .p-tabview-nav-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 1.25rem 2rem;
+  }
+  .card-body-left {
+    display: flex;
+    /* border: 1px solid black; */
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .card-img {
+    width: max-content;
+    border: 2px solid var(--brown);
+    border-radius: 4rem;
+  }
+  .card-img img {
+    width: 80px;
+  }
+  .card-content {
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+  }
+  .card-content strong {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  .card-content span {
+    font-size: 0.8rem;
+    color: var(--font-gray);
+    display: flex;
+    gap: 10px;
+  }
+  .card-content p {
+    margin: 0;
+    padding: 0;
+    color: var(--black);
+    font-weight: 500;
+    text-decoration: underline;
+  }
+  .ng-tab .row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row;
+  }
+  
+  .schedule-main {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 20px;
+    /* border: 1px solid red; */
+  }
+  .schedule-msg {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .schedule-msg img {
+    width: 40%;
+    height: auto;
+  }
+  .mornig-main {
+    /* border: 1px solid red; */
+  }
+  .schedule-mornig {
+    /* border: 1px solid blue; */
+    position: relative;
+    padding: 3px 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--font-gray);
+  }
+  .schedule-mornig .img {
+    width: 25px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(-100%, 15%);
+  }
+  .schedule-time {
+    padding: 30px 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    flex-flow: row wrap;
+  }
+  .schedule-time button {
+    padding: 8px 15px;
+    border-radius: 0.3rem;
+    border: 1px solid var(--gray-border);
+    background-color: transparent;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s all;
+  }
+  .schedule-time button:hover {
+    background-color: var(--light-blue);
+    border: 1px solid var(--sky-blue);
+  }
+  .satisfied-main {
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .satisfied-img img {
+    width: 130px;
+  }
+  .satisfied-content strong {
+    font-size: 0.9rem;
+  }
+  .satisfied-content span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--font-gray);
+  }
+  .footer {
+  }
+  .footer strong {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--sky-blue);
+  }
+  .footer-sub {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  .footer-sub span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--font-gray);
+    text-decoration: underline;
+  }
+  

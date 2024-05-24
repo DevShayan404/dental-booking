@@ -1,0 +1,56 @@
+.drlist-carousel{
+    width: 100%;
+  }
+  .drlist-card {
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    /* width: 300px; */
+  }
+  
+  .drlist-card .card-body {
+    margin: 0;
+    padding: 15px 0px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 5px;
+  }
+  .drlist-card .card-body .drlist-card-img {
+    
+    /* border: 3px solid var(--brown); */
+    /* border-radius: 5rem; */
+    /* overflow: hidden; */
+  }
+  /* .drlist-card .card-body img {
+    width: 40px;
+    height: 40px;
+  } */
+  /* .drlist-card strong {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  .drlist-card span {
+    font-size: 0.7rem;
+    color: var(--dark-gray-font);
+  } */
+  .drlist-card .card-footer {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    padding: 0 10px 20px 10px;
+  }
+  .drlist-card .card-footer .col-6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  ::ng-deep .p-carousel .p-carousel-indicators {
+    display: none;
+  }

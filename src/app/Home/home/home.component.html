@@ -1,0 +1,385 @@
+<section>
+  <div class="container-fluid search-main">
+    <div class="row">
+      <div class="col-12">
+        <h1>
+          Find and book the <span> Best Dentists </span> <br />
+          near you
+        </h1>
+        <form (ngSubmit)="SearchDrList()">
+          <div class="search-input">
+            <ng-select
+              [items]="locations"
+              class="custom1"
+              bindLabel="LocationsName"
+              (change)="onChangeLocation($event)"
+              (input)="logTyping($event)"
+              placeholder="Enter Location or City "
+              [clearable]="false"
+            >
+            </ng-select>
+
+            <div class="search-button">
+              <div
+                *ngIf="searchSpinner"
+                class="spinner-grow spinner-grow-sm"
+                role="status"
+              >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <button>
+                <span *ngIf="!searchSpinner">Search</span>
+                <div
+                  *ngIf="searchSpinner"
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                >
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-12 col-lg-8">
+        <div class="search-typwritter">
+          <div class="typwritter">
+            <ngtypewriter [StringList]="list" [speed]="1500"> </ngtypewriter>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div *ngIf="taost" class="toast-main">
+  <div
+    class="toast show"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    [@zoomIn]
+  >
+    <div class="toast-body">
+      <i class="bx bxs-error-circle"></i>
+
+      <p>Please Select your Location.</p>
+    </div>
+    <div class="progress"></div>
+  </div>
+</div>
+<!-- ---------------------Find Section---------------------------------------------------------------- -->
+<section>
+  <div class="container find-main">
+    <div class="row">
+      <div class="col-sm-12 col-lg-5 g-lg-0">
+        <div class="find-card-right">
+          <div class="card-right">
+            <img src="assets\Images\alignersFit.png" alt="" />
+          </div>
+          <div class="card-left">
+            <strong>Dental Care</strong>
+            <p>
+              AlignersFit is dedicated to helping you achieve your teeth smile
+              with our clear aligners on teeth. Our invisalign braces are made
+              to satisfy your needs.
+            </p>
+            <a href="https://www.alignersfit.com/contact-us/" target="_blank">
+              Book Appointment<i class="bx bx-chevron-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-lg-5 g-lg-0">
+        <div class="find-card-left">
+          <div class="card-right">
+            <img src="assets\Images\orangeDental.png" alt="" />
+            <!-- <i class="bx bxs-video"></i> -->
+          </div>
+          <div class="card-left">
+            <strong>Dental Care</strong>
+            <p>
+              We’re a friendly group of dental professionals offering a full
+              spectrum of general, cosmetic, restorative, and surgical dentistry
+              under one roof. New patients are always welcome!
+            </p>
+            <a href="https://orangedentalinc.com/contact-us" target="_blank"
+              >Book Appointment<i class="bx bx-chevron-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <h3>Find doctors by health concern</h3>
+    </div>
+    <div class="row">
+      <div class="drSerices-main">
+        <div class="drService-card" *ngFor="let list of specialityResponse">
+          <div class="drService-img">
+            <img src="assets\Images\filling.png" alt="" />
+          </div>
+          <div class="drService-tittle">
+            <span
+              >{{
+                list.Name.length > 18
+                  ? (list.Name | slice : 0 : 18) + "..."
+                  : list.Name
+              }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</section>
+
+<!-- ---------------------Dr List Section---------------------------------------------------------------- -->
+<section class="drList-main mt-5">
+  <div class="tooth-img">
+    <img src="assets\Images\tooth.png" alt="" />
+  </div>
+  <div class="container-fluid drList-main g-0">
+    <div class="row g-0">
+      <div class="col-12">
+        <div class="drList-img">
+          <div class="drlist-sm-div">
+            <img src="assets\Images\DrListImg.jpg" alt="" />
+
+            <div class="platium-Dr">
+              <div class="platium-header">
+                <i class="bx bxs-crown"></i>
+                <span>Premium Hospitals</span>
+                <i class="bx bx-info-circle"></i>
+              </div>
+              <p>Doctors with exceptional services & patient satisfaction</p>
+            </div>
+          </div>
+
+          <div class="drList">
+            <div class="drlist-carousel">
+              <app-home-skeleton *ngIf="carouselSkeleton"></app-home-skeleton>
+              <p-carousel
+                *ngIf="!carouselSkeleton"
+                class="carousel-list"
+                [value]="premiumDrList"
+                [numVisible]="3"
+                [numScroll]="1"
+                [responsiveOptions]="responsiveOptions"
+              >
+                <ng-template pTemplate="item" let-card>
+                  <div class="card drlist-card m-2">
+                    <div class="card-body">
+                      <div class="drlist-card-img">
+                        <img src="assets\Images\hospitalLogo.png" alt="" />
+                      </div>
+                      <strong>{{ card.BusinessName }} </strong>
+                      <!-- <span
+                        >{{ card.totalExperience | number : "1.0-2" }} years
+                        experience</span
+                      >
+                      <span>Dentist</span> -->
+                    </div>
+                    <div class="card-footer">
+                      <div class="col-6">
+                        <strong>{{ card.review }}</strong>
+                        <span>Patient Reviews</span>
+                      </div>
+                      <div class="col-6">
+                        <strong>{{ card.satisfactionRate }}%</strong>
+                        <span>Statisfaction Rate</span>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </p-carousel>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="drIimages-main">
+  <div class="drIimages-main-bg"></div>
+  <div class="container">
+    <div class="row g-0 d-flex align-items-center justify-content-center">
+      <div
+        class="col-sm-12 col-md-6 col-lg-6 d-flex align-items-center justify-content-center"
+      >
+        <div class="drSection-content">
+          <h2>Can’t wait to get into an office? We can help!</h2>
+          <p>
+            We understand that sometimes you need to speak with a dentist right
+            away. Our partners at Denteractive have pre-screened,
+            board-certified dentists who can provide advice, some non-narcotic
+            prescriptions, and help manage your pain over secure chat or video
+            immediately, 7 days a week.
+          </p>
+          <button (click)="connectWithDentist()">
+            Connect With a Dentist Now <i class="bx bx-right-arrow-alt"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="drIimages-img1">
+          <img
+            class="drIimages-img-width1"
+            src="assets\Images\123.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="drIimages-center">
+  <div
+    class="container pt-5 pb-5 d-flex align-items-center justify-content-center"
+  >
+    <div class="row">
+      <div
+        class="col-sm-12 col-md-6 col-lg-7 d-flex align-items-center justify-content-center"
+      >
+        <img src="assets\Images\drImages.png" alt="" />
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-5 d-flex align-items-end">
+        <div class="drImage-content">
+          <ul>
+            <li>
+              <div class="arrow"><i class="bx bx-arrow-back"></i></div>
+              <span
+                >Appointments on your time with Chat Now and Video Visit
+                Options</span
+              >
+            </li>
+            <li>
+              <div class="arrow"><i class="bx bx-arrow-back"></i></div>
+              <span
+                >Learn what other patients had to say before you book an
+                appointment</span
+              >
+            </li>
+            <li>
+              <div class="arrow"><i class="bx bx-arrow-back"></i></div>
+              <span
+                >Find doctors that take your insurance including Medicare and
+                Medicaid</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="drIimages-main">
+  <div class="drIimages-main-bg"></div>
+  <div class="container">
+    <div class="row g-0 d-flex align-items-center justify-content-center">
+      <div
+        class="col-sm-12 col-md-6 col-lg-6 d-flex align-items-center justify-content-center"
+      >
+        <div class="drSection-content">
+          <h1>Hey, Dentists!</h1>
+          <span
+            >Looking to grow your practice? Join the platform with everything
+            you need to grow your practice and level up the care you
+            provide.</span
+          >
+          <button>
+            <a href="https://admin.dentalbooking.ca" target="_blank"
+              >Sign up today</a
+            >
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="drIimages-img1">
+          <img
+            class="drIimages-img-width"
+            src="assets\Images\heyDe.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------------Looking For more Section---------------------------------------------------------------- -->
+<!-- <section>
+  <div class="container g-0 looking-main">
+    <div class="row">
+      <h3>Looking For More?</h3>
+    </div>
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="col-3">
+        <div class="looking-img">
+          <img src="assets\Images\microscope.png" alt="" />
+          <p>Book Medical Tests</p>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="looking-img">
+          <img src="assets\Images\medical-history.png" alt="" />
+          <p>Read Health Articles</p>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="looking-img">
+          <img src="assets\Images\information.png" alt="" />
+          <p>Ask a Question</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- ---------------------Review Section---------------------------------------------------------------- -->
+<!-- <section class="reviewSection-main">
+  <div class="container-fluid review-main">
+    <div class="row d-flex align-items-center justify-content-center">
+      <h3>Over 200,000 user recommendations</h3>
+    </div>
+    <div class="row reviewCard-row">
+      <p-carousel
+        [value]="reviews"
+        [numVisible]="3"
+        [numScroll]="1"
+        [responsiveOptions]="responsiveOptions"
+      >
+        <ng-template let-item pTemplate="item">
+          <div class="card reviewCard">
+            <div class="card-body">
+              <div class="review-comment">
+                <i class="bx bxs-quote-alt-left"></i>
+                <div class="review-comment-div">
+                  <div class="review-rating">
+                    <div class="rate">
+                      <h2>{{ item?.Rating }}</h2>
+                      <span>/5</span>
+                    </div>
+                    <p-rating
+                      [(ngModel)]="item.Rating"
+                      [readonly]="true"
+                      [cancel]="false"
+                    ></p-rating>
+                  </div>
+                  <p>
+                    {{ item.Remarks }}
+                  </p>
+                </div>
+
+                <i class="bx bxs-quote-alt-right"></i>
+              </div>
+              <hr />
+              <strong><i class="bx bx-user"></i>{{ item.Patient.Name }}</strong>
+            </div>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+</section> -->

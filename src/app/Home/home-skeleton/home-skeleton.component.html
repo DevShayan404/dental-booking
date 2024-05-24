@@ -1,0 +1,29 @@
+<p-carousel
+  class="carousel-list"
+  [value]="DrListResponse"
+  [numVisible]="3"
+  [numScroll]="1"
+>
+  <ng-template pTemplate="item" let-card>
+    <div class="card drlist-card m-2">
+      <div class="card-body">
+        <div class="drlist-card-img">
+          <p-skeleton shape="circle" size="4rem" styleClass="mb-1"></p-skeleton>
+        </div>
+        <p-skeleton width="12rem"></p-skeleton>
+        <p-skeleton width="8rem" height=".8rem"></p-skeleton>
+        <p-skeleton width="5rem" height=".5rem"></p-skeleton>
+      </div>
+      <div class="card-footer mt-3">
+        <div class="col-6">
+          <p-skeleton width="3rem" styleClass="mb-2"></p-skeleton>
+          <p-skeleton width="5rem" height=".5rem"></p-skeleton>
+        </div>
+        <div class="col-6">
+          <p-skeleton width="3rem" styleClass="mb-2"></p-skeleton>
+          <p-skeleton width="5rem" height=".5rem"></p-skeleton>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

@@ -1,0 +1,537 @@
+<nav *ngIf="hideNavbar === undefined">
+  <section
+    *ngIf="!notFixedNav"
+    class="navSection-main"
+    [ngClass]="{ navSectionActive: navSectionActive == true }"
+  >
+    <div
+      (scroll)="onscroll()"
+      [ngClass]="{ activeHeader: navbarFixed == true }"
+      class="container-fluid nav-main g-0"
+    >
+      <header *ngIf="promotionHeader && isIndexPage">
+        <div class="container-fluid g-0">
+          <div class="promotion-div">
+            <ul *ngFor="let item of promotion">
+              <li *ngIf="item.Flag === 1">
+                <strong>{{ item?.Subject }}</strong>
+                <a (click)="showPromoDialog('top')">Click here</a>
+              </li>
+            </ul>
+            <i (click)="promoHeader()" class="bx bx-x"></i>
+          </div>
+        </div>
+      </header>
+      <div class="row g-0 px-4 py-1">
+        <div
+          class="col-sm-12 col-md-3 col-lg-2 pt-2 d-flex align-items-center justify-content-between"
+        >
+          <div class="logo-main">
+            <img
+              *ngIf="!navImg && router.url === '/'"
+              routerLink="/"
+              src="assets\Images\logo.png"
+              alt=""
+            />
+            <img
+              *ngIf="navImg || router.url !== '/'"
+              routerLink="/"
+              src="assets\Images\blueLogo.png"
+              alt=""
+            />
+          </div>
+          <button class="login-sm">
+            <span
+              *ngIf="!userName"
+              (click)="modal()"
+              [ngClass]="{
+                navRightColorActive:
+                  navLinks == true ||
+                  navLinkActive == true ||
+                  router.url !== '/'
+              }"
+            >
+              <i class="bx bxs-user"></i>Login</span
+            >
+            <span
+              *ngIf="userName"
+              (click)="sidebarRight()"
+              [ngClass]="{
+                navRightColorActive: navLinks == true || router.url !== '/'
+              }"
+            >
+              <i class="bx bxs-user"></i>{{ userName }}
+            </span>
+          </button>
+        </div>
+        <div class="col-sm-12 col-md-9 col-lg-10">
+          <div class="navbar">
+            <div *ngIf="showLocationInput === undefined"></div>
+            <div class="location-Input" *ngIf="showLocationInput">
+              <i class="bx bxs-map" (click)="openMapModal()"></i>
+              <ng-select
+                [items]="locations"
+                class="custom1"
+                bindLabel="LocationsName"
+                [(ngModel)]="locationInput"
+                placeholder="Enter Location or City "
+                [clearable]="false"
+                (change)="onChangeLocation($event)"
+              >
+              </ng-select>
+              <!-- <i class="bx bxs-map" (click)="openMapModal()"></i>
+              <input type="text" [(ngModel)]="locationInput" /> -->
+            </div>
+            <div class="nav-left">
+              <button class="login">
+                <span
+                  *ngIf="!userName"
+                  (click)="modal()"
+                  [ngClass]="{
+                    navRightColorActive:
+                      navLinks == true ||
+                      navLinkActive == true ||
+                      router.url !== '/'
+                  }"
+                >
+                  <i class="bx bxs-user"></i>Login</span
+                >
+                <span
+                  *ngIf="userName"
+                  (click)="sidebarRight()"
+                  [ngClass]="{
+                    navRightColorActive: navLinks == true || router.url !== '/'
+                  }"
+                >
+                  <i class="bx bxs-user"></i>{{ userName }}
+                </span>
+              </button>
+              <button class="phone">
+                <i class="bx bxs-phone"></i> 1 647 476 7213
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    *ngIf="notFixedNav"
+    [ngClass]="{ notFixedNav: notFixedNav === true }"
+  >
+    <div class="container-fluid nav-main g-0">
+      <div class="row g-0 px-4 py-1">
+        <div class="col-2">
+          <div class="logo-main">
+            <img
+              *ngIf="!navImg && router.url === '/'"
+              routerLink="/"
+              src="assets\Images\logo.png"
+              alt=""
+            />
+            <img
+              *ngIf="navImg || router.url !== '/'"
+              routerLink="/"
+              src="assets\Images\blueLogo.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="col-10">
+          <div class="navbar">
+            <div *ngIf="showLocationInput === undefined"></div>
+            <div class="location-Input" *ngIf="showLocationInput">
+              <i class="bx bxs-map" (click)="openMapModal()"></i>
+              <ng-select
+                [items]="locations"
+                class="custom1"
+                bindLabel="LocationsName"
+                [(ngModel)]="locationInput"
+                placeholder="Enter Location or City "
+                [clearable]="false"
+              >
+              </ng-select>
+              <!-- <i class="bx bxs-map" (click)="openMapModal()"></i>
+              <input type="text" [(ngModel)]="locationInput" /> -->
+            </div>
+
+            <div class="nav-left">
+              <button class="login">
+                <span
+                  *ngIf="!userName"
+                  (click)="modal()"
+                  [ngClass]="{
+                    navRightColorActive:
+                      navLinks == true ||
+                      navLinkActive == true ||
+                      router.url !== '/'
+                  }"
+                >
+                  <i class="bx bxs-user"></i>Login</span
+                >
+                <span
+                  *ngIf="userName"
+                  (click)="sidebarRight()"
+                  [ngClass]="{
+                    navRightColorActive: navLinks == true || router.url !== '/'
+                  }"
+                >
+                  <i class="bx bxs-user"></i>{{ userName }}
+                </span>
+              </button>
+              <button class="phone">
+                <i class="bx bxs-phone"></i> (+1) 866 667-1377
+              </button>
+              <button
+                class="toggle"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight"
+              >
+                <i class="bx bx-menu"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</nav>
+
+<!----------------small screen side bar--------------------------------------->
+<p-sidebar [(visible)]="sidebarVisibleRight" position="right">
+  <ng-template pTemplate="header">
+    <img src="assets\Images\blueLogo.png" alt="" />
+  </ng-template>
+  <ng-template pTemplate="content">
+    <div class="logout-main">
+      <div class="logout-header">
+        <i class="bx bx-user"></i>
+
+        <form
+          [formGroup]="updateProfile"
+          (ngSubmit)="submitUpdateProfile(updateProfile.value)"
+        >
+          <div class="form">
+            <input
+              type="text"
+              class="form__input"
+              formControlName="name"
+              autocomplete="off"
+              placeholder=" "
+              [ngModel]="userName"
+            />
+            <label for="Designation" class="form__label">Name</label>
+          </div>
+          <div class="form">
+            <input
+              type="text"
+              class="form__input"
+              autocomplete="off"
+              placeholder=" "
+              [value]="getPatientNumber"
+              readonly="true"
+            />
+            <label for="Designation" class="form__label">Phone No.</label>
+          </div>
+          <button><i class="bx bx-edit"></i>Update</button>
+        </form>
+      </div>
+      <div class="sideBar-buttons">
+        <button class="slotHistory" (click)="slotHistory()">
+          My Appointments
+        </button>
+        <button (click)="logout()" class="logout">
+          <i class="bx bx-log-out"></i>
+          Logout
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</p-sidebar>
+
+<!-- ------------ Modal------------------------------------------------------- -->
+<p-dialog
+  #yourDialog
+  class="ng-dialog"
+  [(visible)]="modalVisible"
+  [modal]="true"
+  [breakpoints]="{ '1023px': '70%', '767px': '90%' }"
+  [style]="{ width: '40%' }"
+  [draggable]="false"
+  [resizable]="true"
+>
+  <div *ngIf="modalButtons" class="loginModal-button-main">
+    <img src="assets\Images\blueLogo.png" alt="" />
+    <hr />
+    <div class="loginModal-button">
+      <div style="display: flex; gap: 15px">
+        <button (click)="loginAsPatient(false)">Login as a Patient</button>
+
+        <span
+          style="
+            font-size: 12px;
+            cursor: pointer;
+            line-height: 1.2;
+            text-align: center;
+          "
+          (click)="openPdfGuideforWebsitee()"
+        >
+          <i style="font-size: 20px" class="bx bx-download"></i>PDF</span
+        >
+      </div>
+
+      <!-- <button> -->
+      <div style="display: flex; gap: 15px">
+        <a href="https://admin.dentalbooking.ca" target="_blank"
+          >Become a Partner</a
+        >
+        <span
+          style="
+            font-size: 12px;
+            cursor: pointer;
+            line-height: 1.2;
+            text-align: center;
+          "
+          (click)="openPdfGETPortalGuid()"
+        >
+          <i style="font-size: 20px" class="bx bx-download"></i>PDF</span
+        >
+      </div>
+
+      <!-- </button> -->
+    </div>
+  </div>
+
+  <div *ngIf="displayPatient" class="moadl-main">
+    <form
+      *ngIf="!patientLogin"
+      [formGroup]="patientForm"
+      (ngSubmit)="submitPatientForm(patientForm.value)"
+    >
+      <div class="back-button">
+        <i (click)="modalBack()" class="bx bx-arrow-back"></i>
+      </div>
+      <strong>Enter your Details</strong>
+      <p class="m-0">Please provide below details.</p>
+      <div class="form">
+        <input
+          type="text"
+          class="form__input"
+          autocomplete="off"
+          placeholder=" "
+          formControlName="patienName"
+        />
+        <label for="Designation" class="form__label">Enter your name</label>
+      </div>
+      <div class="form">
+        <input
+          type="text"
+          class=""
+          [ngClass]="
+            validateInput == true
+              ? 'form__input_number__validate'
+              : 'form__input_number'
+          "
+          autocomplete="off"
+          placeholder=" "
+          formControlName="phoneNumber"
+          (input)="onPhoneNumberInput($event)"
+          (focus)="onInputFocus()"
+          (blur)="onInputBlur()"
+        />
+        <label
+          for="Designation"
+          class=""
+          [ngClass]="
+            validateInput == true ? 'form__label__validate' : 'form__label'
+          "
+          >Phone no.</label
+        >
+        <span *ngIf="showFlag" class="flag"
+          ><img src="assets\Images\canada.png" />+1</span
+        >
+      </div>
+      <button class="patientRegiter-button">
+        Register<i *ngIf="!patientSpinner" class="bx bx-right-arrow-alt"></i>
+        <div
+          *ngIf="patientSpinner"
+          class="spinner-border text-light spinner-border-sm"
+          role="status"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </button>
+    </form>
+    <div *ngIf="patientLogin" class="field">
+      <div class="back-button">
+        <i class="bx bx-arrow-back" (click)="otpOtpToPatientForm()"></i>
+      </div>
+      <strong>Enter OTP</strong>
+      <p class="m-0" *ngIf="timer <= 0" (click)="resendOtp()">
+        <span>Resend OTP</span>
+      </p>
+      <p class="m-0" *ngIf="timer > 0">
+        Time Remaining: <span>{{ timer }}</span> seconds
+      </p>
+      <form
+        [formGroup]="patientLoginForm"
+        (ngSubmit)="submitPatientLogin(patientLoginForm.value)"
+      >
+        <div class="field">
+          <div class="form">
+            <input
+              type="number"
+              class="form__input_number"
+              autocomplete="off"
+              placeholder=" "
+              formControlName="patientNo"
+              [(ngModel)]="getPatientNumber"
+              [value]="getPatientNumber"
+              readonly
+            />
+            <label for="Designation" class="form__label">Phone no.</label>
+            <span class="flag"><img src="assets\Images\canada.png" />+1</span>
+          </div>
+          <!-- <span>{{getPatientNumber}}</span> -->
+          <div class="form">
+            <input
+              type="number"
+              class="form__input"
+              autocomplete="off"
+              placeholder=" "
+              formControlName="otp"
+              [(ngModel)]="resOtp"
+            />
+            <label for="Designation" class="form__label">Enter OTP</label>
+            <a *ngIf="otpErr" class="otpValidateMessage">{{ otpErrMessage }}</a>
+          </div>
+        </div>
+        <button class="patienLogin-button">
+          Continue<i *ngIf="!patientSpinner" class="bx bx-right-arrow-alt"></i>
+          <div
+            *ngIf="patientSpinner"
+            class="spinner-border text-light spinner-border-sm"
+            role="status"
+          >
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+      </form>
+    </div>
+    <div *ngIf="toastwarning" class="toast-main">
+      <div
+        class="toast show"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        [@zoomIn]
+      >
+        <div class="toast-body">
+          <i class="bx bxs-error-circle"></i>
+
+          <p>Please Fill Out the Fields.</p>
+        </div>
+        <div class="progress"></div>
+      </div>
+    </div>
+    <div *ngIf="resendOtpToast" class="toast-main">
+      <div
+        class="toast show"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        [@zoomIn]
+      >
+        <div class="toast-body">
+          <i class="bx bx-check-circle"></i>
+
+          <p>Sent OTP</p>
+        </div>
+        <div class="success"></div>
+      </div>
+    </div>
+  </div>
+</p-dialog>
+
+<p-dialog
+  class="mapModal"
+  header="Your selected location"
+  [(visible)]="mapModal"
+  [position]="modalPosition"
+  [modal]="true"
+  [breakpoints]="{ '1023px': '70%', '767px': '100%' }"
+  [style]="{ width: '70%' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div class="modal-map">
+    <p>{{ locationInputName }}.</p>
+    <google-map
+      height="50vh"
+      width="100%"
+      [options]="aboutMapOptions"
+      [center]="mapCenter"
+      (mapClick)="onMapClick($event)"
+    >
+      <map-marker [position]="markerPositions"></map-marker>
+      <input
+        style="width: 50%; margin-top: 10px"
+        #mapSearchField
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="Search Your Location"
+      />
+    </google-map>
+    <button (click)="confirmLocation()">
+      Confirm Location
+      <div
+        *ngIf="confirmLocationSpinner"
+        class="spinner-border spinner-border-sm"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </button>
+  </div>
+</p-dialog>
+
+<p-dialog
+  class="promotion-dialog"
+  [(visible)]="visiblePromoDialog"
+  [position]="position"
+  [breakpoints]="{ '1023px': '50%', '767px': '90%' }"
+  [style]="{ width: '50%' }"
+  [draggable]="false"
+  [resizable]="false"
+  [modal]="true"
+>
+  <ul>
+    <li *ngFor="let list of Promo">
+      <strong>{{ list.HowToAvail }}</strong
+      ><br />
+      <p>{{ list.Description }}</p>
+    </li>
+  </ul>
+  <a
+    *ngIf="viewAllPromo"
+    data-bs-toggle="collapse"
+    href="#collapseExample"
+    role="button"
+    aria-expanded="false"
+    aria-controls="collapseExample"
+    (click)="viewAll()"
+    >View all promotions</a
+  >
+  <div class="collapse" id="collapseExample">
+    <ul>
+      <li *ngFor="let list of existingPromo">
+        <strong>{{ list.HowToAvail }}</strong
+        ><br />
+        <p>{{ list.Description }}</p>
+      </li>
+    </ul>
+  </div>
+</p-dialog>

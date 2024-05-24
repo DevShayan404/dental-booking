@@ -1,0 +1,193 @@
+<section class="contact-us">
+  <div class="container-fluid g-0 contact-banner">
+    <div class="contact-banner-img">
+      <h1>Contact Us</h1>
+      <span>
+        Get in touch with Dental Booking. Use the form to submit your queries or email
+        us at hello@dentalBooking.com
+      </span>
+    </div>
+  </div>
+
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="about-main">
+        <h3>About Dental Booking</h3>
+        <p>
+          dentalbooking.com is Canada’s premier digital healthcare platform that
+          aims to revolutionize the local healthcare market. It connects
+          patients with the right doctors and enables the doctors to optimize
+          their medical practices via their practice management software.
+          Patients can use Dental Booking (web or mobile app) for the online doctor
+          appointment, e-consultation and online lab tests. On the other hand,
+          the doctors can manage their appointments, automate their scheduling,
+          manage medical records, and process billing.
+        </p>
+      </div>
+    </div>
+
+    <div class="row mt-5 contact-spec">
+      <div class="col-6">
+        <h3>Contact us</h3>
+        <p>
+          Please send us a note and we’ll get back to you as quickly as
+          possible.
+        </p>
+        <form
+          [formGroup]="contactUsForm"
+          (ngSubmit)="submitContactUsForm(contactUsForm.value)"
+        >
+          <div class="form">
+            <input
+              type="text"
+              class="form__input"
+              autocomplete="off"
+              placeholder=" "
+              formControlName="fullName"
+            />
+            <label for="Designation" class="form__label">Full name</label>
+            <i
+              *ngIf="contactUsForm.get('fullName')?.errors?.['required'] && contactUsForm.get('fullName')?.touched"
+              class="bx bxs-error-circle"
+            ></i>
+          </div>
+          <div class="form">
+            <input
+              type="text"
+              class="form__input"
+              autocomplete="off"
+              placeholder=" "
+              formControlName="email"
+            />
+            <label for="Designation" class="form__label">Email</label>
+            <i
+              *ngIf="contactUsForm.get('email')?.errors?.['required'] && contactUsForm.get('email')?.touched"
+              class="bx bxs-error-circle"
+            ></i>
+          </div>
+          <div class="form">
+            <input
+              type="text"
+              class="form__input"
+              autocomplete="off"
+              placeholder=" "
+              formControlName="phoneNo"
+            />
+            <label for="Designation" class="form__label">Phone</label>
+            <i
+              *ngIf="contactUsForm.get('phoneNo')?.errors?.['required'] && contactUsForm.get('phoneNo')?.touched"
+              class="bx bxs-error-circle"
+            ></i>
+          </div>
+          <div class="form">
+            <input
+              type="text"
+              class="form__input"
+              autocomplete="off"
+              placeholder=" "
+              formControlName="subject"
+            />
+            <label for="Designation" class="form__label">Subject</label>
+            <i
+              *ngIf="contactUsForm.get('subject')?.errors?.['required'] && contactUsForm.get('subject')?.touched"
+              class="bx bxs-error-circle"
+            ></i>
+          </div>
+
+          <div class="form1">
+            <textarea
+              class="form__input1"
+              placeholder=" "
+              cols="30"
+              rows="10"
+              formControlName="message"
+            ></textarea>
+            <label for="" class="form__label1">Message</label>
+            <i
+              *ngIf="contactUsForm.get('message')?.errors?.['required'] && contactUsForm.get('message')?.touched"
+              class="bx bxs-error-circle"
+            ></i>
+          </div>
+
+          <!-- <div class="form-button"> -->
+          <button>
+            <span *ngIf="!spinner">Send Message</span>
+            <div
+              *ngIf="spinner"
+              class="spinner-border spinner-border-sm"
+              role="status"
+            >
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </button>
+          <!-- </div> -->
+        </form>
+      </div>
+      <div class="col-6">
+        <h3>Regional Offices</h3>
+        <div class="card">
+          <strong>Canada</strong>
+          <label
+            ><span>Address:</span> Unit 104-100 Dynamic Drive, Toronto, ON M1V
+            5C4</label
+          >
+          <label><span>Email:</span> info@mbeforyou.com </label>
+          <label><span>Phone:</span> 1 647 476 7213 </label>
+          <label><span>Fax:</span> 1 647 476 7213 </label>
+        </div>
+        <div class="card">
+          <strong>USA</strong>
+          <label
+            ><span>Address: </span> 58 Genesee St. Hicksville, NY 11801
+            USA</label
+          >
+          <label><span>Email:</span> info@mbeforyou.com </label>
+          <label><span>Phone:</span> 1 647 476 7213 </label>
+          <label><span>Fax:</span> 1 647 476 7213 </label>
+        </div>
+        <!-- <div class="card">
+          <strong>Toronto</strong>
+          <label>
+            Address: 290 CCA Sector FF, DHA Phase IV, Lahore, Pakistan,
+            54660</label
+          >
+          <label> Email: hello@dentalBooking.com </label>
+          <label> Phone: +1 6324354425 </label>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="taost" class="toast-main">
+  <div
+    class="toast show"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    [@zoomIn]
+  >
+    <div class="toast-body">
+      <i class="bx bxs-error-circle"></i>
+
+      <p>Please Fill Out the Fields.</p>
+    </div>
+    <div class="progress"></div>
+  </div>
+</div>
+<div *ngIf="successToast" class="toast-main">
+  <div
+    class="toast show"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    [@zoomIn]
+  >
+    <div class="toast-body">
+      <i class="bx bx-check-circle"></i>
+
+      <p>{{ message }}</p>
+    </div>
+    <div class="success"></div>
+  </div>
+</div>

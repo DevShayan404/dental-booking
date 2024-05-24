@@ -1,0 +1,548 @@
+<!-- <app-skeleton-view-profile></app-skeleton-view-profile> -->
+<section class="hospital-profile-main">
+  <div class="container-fluid g-0">
+    <google-map
+      height="30vh"
+      width="100%"
+      [options]="mapOptions"
+      [center]="mapCenter"
+    >
+      <map-marker [position]="markerPositions"></map-marker>
+    </google-map>
+  </div>
+  <div class="container g-0 mt-4 mb-5" *ngIf="skeleton">
+    <app-skeleton-view-profile></app-skeleton-view-profile>
+  </div>
+  <div class="container g-0 mt-2 mb-4" *ngIf="!skeleton">
+    <div class="viewSection" *ngFor="let list of hospitalDetails">
+      <div class="view-left">
+        <div class="drDeatil-main">
+          <div class="card-body-left">
+            <div class="card-content">
+              <strong
+                >{{ list?.BusinessName }}
+                <i class="bx bx-plus-medical"></i>
+              </strong>
+              <span>{{ list?.Address1 }}</span>
+            </div>
+            <div class="card-img">
+              <img
+                *ngIf="list?.ProfilePic === null"
+                src="assets\Images\hospitalLogo.png"
+                alt=""
+              />
+              <img
+                *ngIf="list?.ProfilePic !== null"
+                [src]="list.ProfilePic"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <hr />
+
+          <div class="review-main">
+            <div class="review-rating">
+              <div class="rate">
+                <h1>{{ calculateAverageRating() }}</h1>
+                <span>/5</span>
+              </div>
+              <p-rating
+                [(ngModel)]="averageRating"
+                [readonly]="true"
+                [cancel]="false"
+              ></p-rating>
+              <span>{{ Reviews?.length }} Reviews</span>
+            </div>
+            <div class="review-comment">
+              <i class="bx bxs-quote-alt-left"></i>
+              <div class="review-comment-div">
+                <strong>MOST HELPFULL REVIEW </strong>
+
+                <p *ngIf="Reviews?.length > 0">
+                  {{ Reviews[0]?.Remarks }}
+                </p>
+              </div>
+
+              <i class="bx bxs-quote-alt-right"></i>
+            </div>
+          </div>
+
+          <hr />
+
+          <!-- small screen -->
+          <div class="small">
+            <div class="schedule-card">
+              <strong>REQUEST APPOINTMENT</strong>
+              <div class="calendar">
+                <ng-select
+                  class="custom-ngSelect"
+                  [items]="list?.DoctorVendor"
+                  bindLabel="Doctor.FirstName"
+                  placeholder="Select a Doctor"
+                  [clearable]="false"
+                  [(ngModel)]="selectedDr"
+                  (change)="selectDrInList($event)"
+                >
+                  <ng-template ng-option-tmp let-item="item">
+                    <img
+                      src="assets\Images\people1.png"
+                      alt="Item Image"
+                      class="thumbnail"
+                    />
+                    {{ item?.Doctor?.InitialName }}
+                    {{ item?.Doctor?.FirstName }}
+                    {{ item?.Doctor?.LastName }}
+                  </ng-template>
+                  <ng-template ng-label-tmp let-item="item">
+                    <img
+                      src="assets\Images\people1.png"
+                      alt="Item Image"
+                      class="thumbnail"
+                    />
+                    {{ item?.Doctor?.InitialName }}
+                    {{ item?.Doctor?.FirstName }}
+                    {{ item?.Doctor?.LastName }}
+                  </ng-template>
+                </ng-select>
+                <div class="calendar">
+                  <div class="header">
+                    <button
+                      (click)="previousMonth()"
+                      [disabled]="isCurrentMonth()"
+                    >
+                      <i class="bx bx-chevron-left"></i>
+                    </button>
+                    <span>{{ currentDate | date : "MMMM y" }}</span>
+                    <button (click)="nextMonth()">
+                      <i class="bx bx-chevron-right"></i>
+                    </button>
+                  </div>
+                  <hr />
+                  <div class="weekdays">
+                    <div *ngFor="let weekday of weekdayNames" class="weekday">
+                      {{ weekday }}
+                    </div>
+                  </div>
+                  <div class="days">
+                    <div
+                      *ngFor="let day of daysInMonth"
+                      class="day"
+                      [ngClass]="{
+                        highlighted: isAvailableDate(day),
+                        selected:
+                          day.toDateString() === selectedDate?.toDateString(),
+                        'not-allowed': !isAvailableDate(day)
+                      }"
+                      (click)="selectDate(day)"
+                    >
+                      {{ day | date : "d" }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                *ngIf="filteredAppointments.length <= 0 && !slotSkeleton"
+                class="notAvailSlots"
+              >
+                <span>No slots available on this Date.</span>
+              </div>
+              <div class="slots" *ngIf="!slotSkeleton">
+                <div *ngIf="!viewAll" class="slotButtons">
+                  <button
+                    *ngFor="
+                      let appointment of filteredAppointments | slice : 0 : 6
+                    "
+                    (click)="bookSlot(appointment)"
+                  >
+                    {{ appointment?.Appointment | date : "hh:mm a" }}
+                  </button>
+                </div>
+
+                <div *ngIf="viewAll" class="slotButtons">
+                  <button
+                    *ngFor="let appointment of filteredAppointments"
+                    (click)="bookSlot(appointment)"
+                  >
+                    {{ appointment?.Appointment | date : "hh:mm a" }}
+                  </button>
+                </div>
+
+                <a
+                  *ngIf="!viewAll && filteredAppointments.length > 2"
+                  (click)="viewAllSlots()"
+                  >view all<i class="bx bx-chevron-down"></i
+                ></a>
+              </div>
+              <div class="slots" *ngIf="slotSkeleton">
+                <div class="slotButtons">
+                  <p-skeleton width="6.4rem" height="2.5rem"></p-skeleton>
+                  <p-skeleton width="6.4rem" height="2.5rem"></p-skeleton>
+                  <p-skeleton width="6.4rem" height="2.5rem"></p-skeleton>
+                  <p-skeleton width="6.4rem" height="2.5rem"></p-skeleton>
+                  <p-skeleton width="6.4rem" height="2.5rem"></p-skeleton>
+                  <p-skeleton width="6.4rem" height="2.5rem"></p-skeleton>
+                </div>
+              </div>
+              <span
+                ><i class="bx bx-trending-up"></i>Booked by 12 people in the
+                past 30 days</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="tabView-main">
+          <p-tabView
+            class="custom"
+            [(activeIndex)]="activeIndex"
+            [scrollable]="true"
+            (click)="tabClick($event)"
+          >
+            <p-tabPanel *ngFor="let tab of items" [header]="tab.label">
+            </p-tabPanel>
+          </p-tabView>
+          <div class="guarantee-main">
+            <div class="guarantee-img">
+              <img src="assets\Images\satisfaction.png" alt="" />
+            </div>
+            <div class="guarantee-spec">
+              <strong>The Dental Booking Smile Guarantee</strong>
+              <span
+                >We only work the top rated 10% of dentists. If your new Dental
+                Booking does'nt live up to your expectation, we'll cover your
+                co-pay up to $100.</span
+              >
+            </div>
+          </div>
+          <div class="otherClinic-main" id="Need to know">
+            <h5>What you need to know</h5>
+            <div class="hr-div">
+              <i class="bx bxs-circle"></i>
+              <hr />
+            </div>
+            <div class="other-clinic-doctorList">
+              <div class="preference-main">
+                <strong>Preferences & HighLights</strong>
+                <div class="preference-card">
+                  <div class="preference-subCard">
+                    <i class="bx bxs-user-plus"></i>
+                    <div class="preference-subCard-spec">
+                      <strong>Accepting New Patients</strong>
+                      <span>6 new patients last 30 days</span>
+                    </div>
+                  </div>
+                  <div class="preference-subCard">
+                    <i class="bx bxs-heart"></i>
+                    <div class="preference-subCard-spec">
+                      <strong>Reliable Responder</strong>
+                      <span>Goes above and beyond for new patients</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="preference-main">
+                <strong>Insurance & Payment</strong>
+                <div class="insurance-card-main">
+                  <div class="insaurance-card">
+                    <img src="assets\Images\insurance1.png" alt="" />
+                    <div class="insaurance-card-sub">
+                      <strong>Accepts your insurance</strong>
+                    </div>
+                    <strong class="small-none"
+                      ><i class="bx bx-menu"></i>Manulife Financial</strong
+                    >
+                  </div>
+                  <div class="insaurance-card">
+                    <img src="assets\Images\insurance3.png" alt="" />
+                    <div class="insaurance-card-sub">
+                      <strong>Bill your insurance directly</strong>
+                      <span
+                        >you will only for costs not covered by your plan</span
+                      >
+                    </div>
+                  </div>
+                  <div class="insaurance-card">
+                    <img src="assets\Images\insurance2.png" alt="" />
+                    <div class="insaurance-card-sub">
+                      <strong>Financing Plans Available</strong>
+                      <span
+                        >This office flexible low interest financing options to
+                        ensure all patients can get the dental care they
+                        need</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="otherClinic-main" id="Hospital Details">
+            <h5>{{ list?.BusinessName }}</h5>
+            <div class="hr-div">
+              <i class="bx bxs-circle"></i>
+              <hr />
+            </div>
+            <div class="other-clinic-doctorList">
+              <div class="about-map">
+                <google-map
+                  height="40vh"
+                  width="100%"
+                  [options]="aboutMapOptions"
+                  [center]="mapCenter"
+                >
+                  <map-marker [position]="markerPositions"></map-marker>
+                </google-map>
+              </div>
+              <div class="about-main">
+                <div class="about">
+                  <strong>About</strong>
+                  <p>About {{ list?.BusinessName }}</p>
+                  <p>
+                    {{ list?.AboutMe }}
+                  </p>
+                </div>
+
+                <div class="service-main">
+                  <div class="office-hours">
+                    <div class="office-header">
+                      <strong>Office Hours</strong>
+                    </div>
+                    <ul>
+                      <li *ngFor="let time of list.OfficeTimings">
+                        <strong class="week">{{ time.DayOfWeek | days }}</strong
+                        ><strong *ngIf="time.IsStatus === 1"
+                          >{{ time.StartTime | date : "hh:mm a" }} -
+                          {{ time.EndTime | date : "hh:mm a" }}</strong
+                        >
+                        <span *ngIf="time.IsStatus === 0">Closed</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="otherClinic-main" id="Doctors">
+            <h5>Our Providers</h5>
+            <div class="hr-div">
+              <i class="bx bxs-circle"></i>
+              <hr />
+            </div>
+            <div class="other-clinic-doctorList">
+              <div
+                class="otherClinic-card"
+                *ngFor="let list of list.DoctorVendor"
+              >
+                <div class="otherClinic-card-main">
+                  <p-avatar
+                    image="assets\Images\people1.png"
+                    size="large"
+                    shape="circle"
+                  ></p-avatar>
+                  <span
+                    >{{ list?.Doctor?.InitialName }}
+                    {{ list?.Doctor?.FirstName }}
+                    {{ list?.Doctor?.LastName }}</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="otherClinic-main" id="Reviews">
+            <h5>{{ Reviews?.length }} Detailed Reviews</h5>
+            <div class="hr-div">
+              <i class="bx bxs-circle"></i>
+              <hr />
+            </div>
+
+            <div class="other-clinic-doctorList">
+              <div class="average-review">
+                <div class="average-rating">
+                  <div class="rate">
+                    <h1>{{ calculateAverageRating() }}</h1>
+                    <span>/5</span>
+                  </div>
+                  <p-rating
+                    [(ngModel)]="averageRating"
+                    [readonly]="true"
+                    [cancel]="false"
+                  ></p-rating>
+                  <span>{{ Reviews?.length }} Reviews</span>
+                </div>
+                <div class="average-div">
+                  <ul>
+                    <li *ngFor="let rating of [5, 4, 3, 2, 1]">
+                      <span class="span"
+                        >{{ rating }}<i class="bx bxs-star"></i
+                      ></span>
+                      <div class="progress">
+                        <div
+                          class="progress-bar"
+                          role="progressbar"
+                          [style.width.%]="
+                            (calculateReviewCountByRating(rating) /
+                              Reviews?.length) *
+                            100
+                          "
+                          aria-valuenow="98"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                      <span>{{ calculateReviewCountByRating(rating) }}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="reviews-card-main">
+                <div class="review-card" *ngFor="let review of Reviews">
+                  <div class="review-header">
+                    <p-rating
+                    class="card-ratring-star"
+                      [(ngModel)]="review.Rating"
+                      [readonly]="true"
+                      [cancel]="false"
+                    ></p-rating>
+                    <span>Reviewed on</span>
+                    <span class="date">
+                      {{ review?.CreatedOn | date : "MMM dd, yyyy" }}</span
+                    >
+                    <img src="assets\Images\verifiedPatient.png" alt="" />
+                  </div>
+                  <div class="review-body">
+                    <i class="bx bxs-quote-alt-left"></i>
+                    <div class="review-body-div">
+                      <p>
+                        {{ review?.Remarks }}
+                      </p>
+                    </div>
+
+                    <i class="bx bxs-quote-alt-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-right">
+        <div class="position">
+          <div class="schedule-card">
+            <strong>REQUEST APPOINTMENT</strong>
+            <div class="calendar">
+              <ng-select
+                class="custom-ngSelect"
+                [items]="list?.DoctorVendor"
+                bindLabel="Doctor.FirstName"
+                placeholder="Select a Doctor"
+                [clearable]="false"
+                [(ngModel)]="selectedDr"
+                (change)="selectDrInList($event)"
+              >
+                <ng-template ng-option-tmp let-item="item">
+                  <img
+                    src="assets\Images\people1.png"
+                    alt="Item Image"
+                    class="thumbnail"
+                  />
+                  {{ item?.Doctor?.InitialName }} {{ item?.Doctor?.FirstName }}
+                  {{ item?.Doctor?.LastName }}
+                </ng-template>
+                <ng-template ng-label-tmp let-item="item">
+                  <img
+                    src="assets\Images\people1.png"
+                    alt="Item Image"
+                    class="thumbnail"
+                  />
+                  {{ item?.Doctor?.InitialName }} {{ item?.Doctor?.FirstName }}
+                  {{ item?.Doctor?.LastName }}
+                </ng-template>
+              </ng-select>
+              <div class="calendar">
+                <div class="header">
+                  <button (click)="previousMonth()" [disabled]="isCurrentMonth()">
+                    <i class="bx bx-chevron-left"></i>
+                  </button>
+                  <span>{{ currentDate | date : "MMMM y" }}</span>
+                  <button (click)="nextMonth()">
+                    <i class="bx bx-chevron-right"></i>
+                  </button>
+                </div>
+                <hr />
+                <div class="weekdays">
+                  <div *ngFor="let weekday of weekdayNames" class="weekday">
+                    {{ weekday }}
+                  </div>
+                </div>
+                <div class="days">
+                  <ng-container *ngFor="let blankDay of blankDays">
+                    <div class="day empty"></div>
+                  </ng-container>
+                  <div *ngFor="let day of daysInMonth" class="day" [ngClass]="{
+                    highlighted: isAvailableDate(day),
+                    selected: day.toDateString() === selectedDate?.toDateString(),
+                    'not-allowed': !isAvailableDate(day)
+                  }" (click)="selectDate(day)">
+                    {{ day.getDate() }}
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div
+              *ngIf="filteredAppointments.length <= 0 && !slotSkeleton"
+              class="notAvailSlots"
+            >
+              <span>No slots available on this Date.</span>
+            </div>
+            <div class="slots" *ngIf="!slotSkeleton">
+              <div *ngIf="!viewAll" class="slotButtons">
+                <button
+                  *ngFor="
+                    let appointment of filteredAppointments | slice : 0 : 6
+                  "
+                  (click)="bookSlot(appointment)"
+                >
+                  {{ appointment?.Appointment | date : "hh:mm a" }}
+                </button>
+              </div>
+
+              <div *ngIf="viewAll" class="slotButtons">
+                <button
+                  *ngFor="let appointment of filteredAppointments"
+                  (click)="bookSlot(appointment)"
+                >
+                  {{ appointment?.Appointment | date : "hh:mm a" }}
+                </button>
+              </div>
+
+              <a
+                *ngIf="!viewAll && filteredAppointments.length > 2"
+                (click)="viewAllSlots()"
+                >view all<i class="bx bx-chevron-down"></i
+              ></a>
+            </div>
+            <div class="slots" *ngIf="slotSkeleton">
+              <div class="slotButtons">
+                <p-skeleton width="6.4rem" height="2.5rem"></p-skeleton>
+                <p-skeleton width="6.4rem" height="2.5rem"></p-skeleton>
+                <p-skeleton width="6.4rem" height="2.5rem"></p-skeleton>
+                <p-skeleton width="6.4rem" height="2.5rem"></p-skeleton>
+                <p-skeleton width="6.4rem" height="2.5rem"></p-skeleton>
+                <p-skeleton width="6.4rem" height="2.5rem"></p-skeleton>
+              </div>
+            </div>
+            <span
+              ><i class="bx bx-trending-up"></i>Booked by 12 people in the past
+              30 days</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
